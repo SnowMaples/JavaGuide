@@ -246,5 +246,3 @@ Nacos 客户端同样会维护本地快照。配置中心不可用时，客户�
 - [Nacos 1.1.0 发布，支持灰度配置](https://nacos.io/zh-cn/blog/nacos%201.1.0.html)
 - [Apollo 在有赞的实践](https://mp.weixin.qq.com/s/Ge14UeY9Gm2Hrk--E47eJQ)
 - [微服务配置中心选型比较](https://www.itshangxp.com/spring-cloud/spring-cloud-config-center/)
-
-<!-- @include: @planet.snippet.md -->

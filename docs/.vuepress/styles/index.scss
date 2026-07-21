@@ -11,19 +11,6 @@ body {
   height: auto;
 }
 
-.article-promo-image {
-  display: block;
-  margin: 1rem auto;
-
-  img {
-    display: block;
-    width: min(100%, 1774px);
-    aspect-ratio: 1774 / 887;
-    height: auto;
-    margin: 0 auto;
-  }
-}
-
 .article-footer-qrcode {
   display: block;
   width: min(612px, 100%);

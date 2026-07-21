@@ -8,7 +8,6 @@ import { csBasics } from "./cs-basics.js";
 import { highQualityTechnicalArticles } from "./high-quality-technical-articles.js";
 import { openSourceProject } from "./open-source-project.js";
 import { roadmap } from "./roadmap.js";
-import { zhuanlan } from "./zhuanlan.js";
 import {
   ICONS,
   createImportantSection,
@@ -25,7 +24,6 @@ export default sidebar({
   "/books/": books,
   "/about-the-author/": aboutTheAuthor,
   "/high-quality-technical-articles/": highQualityTechnicalArticles,
-  "/zhuanlan/": zhuanlan,
   // 必须放在最后面
   "/": [
     {
@@ -148,10 +146,6 @@ export default sidebar({
           icon: ICONS.VIRTUAL_MACHINE,
           collapsible: true,
           children: [
-            {
-              text: "JVM常见面试题总结",
-              link: "https://interview.javaguide.cn/java/java-jvm.html",
-            },
             "memory-area",
             "jvm-garbage-collection",
             "class-file-structure",
@@ -271,16 +265,8 @@ export default sidebar({
               "redis-persistence",
               "redis-memory-fragmentation",
               "redis-common-blocking-problems-summary",
-              "redis-cluster",
             ]),
           ],
-        },
-        {
-          text: "Elasticsearch",
-          prefix: "elasticsearch/",
-          icon: ICONS.ELASTICSEARCH,
-          collapsible: true,
-          children: ["elasticsearch-questions-01"],
         },
         {
           text: "MongoDB",
@@ -360,7 +346,6 @@ export default sidebar({
           ],
         },
         "mybatis/mybatis-interview",
-        "netty",
       ],
     },
     {
@@ -416,10 +401,6 @@ export default sidebar({
           ],
         },
         "system-design-questions",
-        {
-          text: "⭐设计模式常见面试题总结",
-          link: "https://interview.javaguide.cn/system-design/design-pattern.html",
-        },
         "schedule-task",
         "web-real-time-message-push",
       ],

@@ -64,7 +64,7 @@ Agent Loop 很早就有了。一个最简单的 Agent 本来就是：
 
 ReAct 也是这个思路：Reasoning 和 Acting 交替进行，模型走一步看一步，拿到外部反馈后再决定下一步。
 
-我之前在 [AI Agent 核心概念](https://javaguide.cn/ai/agent/agent-basis.html) 里讲过，它适合处理路径不确定、需要根据证据调整方向的任务。查线上故障、读代码库、排查测试失败，都属于这一类。
+我之前在 [AI Agent 核心概念](/ai/agent/agent-basis.html) 里讲过，它适合处理路径不确定、需要根据证据调整方向的任务。查线上故障、读代码库、排查测试失败，都属于这一类。
 
 这篇主要看外层。内层是 Agent 自己每一轮“推理、行动、观察”的循环；外层则负责隔一段时间启动 Agent、把工作分出去、检查结果、保存状态，决定下一轮还要不要继续。
 
@@ -79,7 +79,7 @@ ReAct 也是这个思路：Reasoning 和 Acting 交替进行，模型走一步�
 
 ![Workflow、Graph、Loop 三者关系概览](https://oss.javaguide.cn/github/javaguide/ai/workflow/workflow-graph-loop-relation.svg)
 
-比如“生成初稿 → 审核 → 不通过就修改 → 再审核”，这本来就是 Graph 里的条件边和回边。我之前在 [AI 工作流中的 Workflow、Graph 与 Loop](https://javaguide.cn/ai/agent/workflow-graph-loop.html) 里讲过，可靠的 Loop 至少要写清三件事：
+比如“生成初稿 → 审核 → 不通过就修改 → 再审核”，这本来就是 Graph 里的条件边和回边。我之前在 [AI 工作流中的 Workflow、Graph 与 Loop](/ai/agent/workflow-graph-loop.html) 里讲过，可靠的 Loop 至少要写清三件事：
 
 - 继续条件：为什么还要再跑一轮。
 - 退出条件：什么结果算可以停。
@@ -108,7 +108,7 @@ Loop 一旦跑久，上下文问题很快就会冒出来。
 
 ### Harness Engineering：模型外面的执行环境
 
-我之前在 [Harness Engineering](https://javaguide.cn/ai/agent/harness-engineering.html) 里用过一个说法：Agent = Model + Harness。模型负责推理和生成，Harness 负责环境、工具、反馈、沙箱、权限、观测和恢复。
+我之前在 [Harness Engineering](/ai/agent/harness-engineering.html) 里用过一个说法：Agent = Model + Harness。模型负责推理和生成，Harness 负责环境、工具、反馈、沙箱、权限、观测和恢复。
 
 ![Harness 和 Prompt/Context Engineering 的关系](https://oss.javaguide.cn/github/javaguide/ai/harness/harness-engineering-layers-arch.png)
 

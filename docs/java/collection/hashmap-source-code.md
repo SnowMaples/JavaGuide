@@ -10,8 +10,6 @@ head:
       content: HashMap源码,哈希表,红黑树,链表,扰动函数,负载因子,HashMap扩容,哈希冲突,JDK1.8优化
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 > 感谢 [changfubai](https://github.com/changfubai) 对本文的改进做出的贡献！
 
 ## HashMap 简介

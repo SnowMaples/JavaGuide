@@ -1,0 +1,250 @@
+#!/bin/sh
+set -eu
+
+usage() {
+    cat <<'EOF'
+Usage: javaguide-web [restart|start|stop|status|foreground] [vuepress options]
+
+Default action is restart. VuePress options are passed to `pnpm docs:dev`.
+
+Examples:
+  javaguide-web
+  javaguide-web restart --port 8080
+  javaguide-web foreground --host 127.0.0.1 --port 8080
+  javaguide-web stop
+
+Environment:
+  JAVAGUIDE_WEB_STATE_DIR  PID/log directory
+  JAVAGUIDE_WEB_PID_FILE   Override PID file
+  JAVAGUIDE_WEB_LOG_FILE   Override log file
+  PNPM                     pnpm executable, default: pnpm
+EOF
+}
+
+resolve_script_dir() {
+    target=$0
+    while [ -L "$target" ]; do
+        dir=$(CDPATH= cd -P "$(dirname "$target")" >/dev/null 2>&1 && pwd)
+        link=$(readlink "$target")
+        case "$link" in
+            /*) target=$link ;;
+            *) target=$dir/$link ;;
+        esac
+    done
+    CDPATH= cd -P "$(dirname "$target")" >/dev/null 2>&1 && pwd
+}
+
+arg_value() {
+    key=$1
+    default=$2
+    shift 2
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            --"$key")
+                if [ "$#" -gt 1 ]; then
+                    printf '%s\n' "$2"
+                    return 0
+                fi
+                ;;
+            --"$key"=*)
+                printf '%s\n' "${1#*=}"
+                return 0
+                ;;
+        esac
+        shift
+    done
+    printf '%s\n' "$default"
+}
+
+has_arg() {
+    key=$1
+    shift
+    while [ "$#" -gt 0 ]; do
+        case "$1" in
+            --"$key"|--"$key"=*) return 0 ;;
+        esac
+        shift
+    done
+    return 1
+}
+
+server_url() {
+    host=$(arg_value host 127.0.0.1 "$@")
+    port=$(arg_value port 8080 "$@")
+    printf 'http://%s:%s/\n' "$host" "$port"
+}
+
+is_pid_running() {
+    [ -f "$PID_FILE" ] || return 1
+    pid=$(sed -n '1p' "$PID_FILE" 2>/dev/null || true)
+    case "$pid" in
+        ''|*[!0-9]*) return 1 ;;
+    esac
+    kill -0 "$pid" 2>/dev/null
+}
+
+ensure_ready() {
+    if ! command -v "$PNPM" >/dev/null 2>&1; then
+        echo "cannot find pnpm executable: $PNPM" >&2
+        return 1
+    fi
+    if [ ! -f "$PROJECT_ROOT/package.json" ]; then
+        echo "cannot find JavaGuide package.json: $PROJECT_ROOT/package.json" >&2
+        return 1
+    fi
+    if [ ! -d "$PROJECT_ROOT/node_modules" ]; then
+        echo "missing dependencies: run 'pnpm install' in $PROJECT_ROOT first" >&2
+        return 1
+    fi
+}
+
+run_dev() {
+    if has_arg host "$@" && has_arg port "$@"; then
+        exec "$PNPM" docs:dev "$@"
+    elif has_arg host "$@"; then
+        exec "$PNPM" docs:dev --port 8080 "$@"
+    elif has_arg port "$@"; then
+        exec "$PNPM" docs:dev --host 127.0.0.1 "$@"
+    else
+        exec "$PNPM" docs:dev --host 127.0.0.1 --port 8080 "$@"
+    fi
+}
+
+stop_server() {
+    if ! is_pid_running; then
+        rm -f "$PID_FILE"
+        echo "javaguide-web is not running"
+        return 0
+    fi
+
+    pid=$(sed -n '1p' "$PID_FILE")
+    kill -TERM "-$pid" 2>/dev/null || kill "$pid" 2>/dev/null || true
+
+    tries=0
+    while kill -0 "$pid" 2>/dev/null && [ "$tries" -lt 50 ]; do
+        tries=$((tries + 1))
+        sleep 0.1
+    done
+
+    if kill -0 "$pid" 2>/dev/null; then
+        kill -KILL "-$pid" 2>/dev/null || kill -KILL "$pid" 2>/dev/null || true
+        tries=0
+        while kill -0 "$pid" 2>/dev/null && [ "$tries" -lt 20 ]; do
+            tries=$((tries + 1))
+            sleep 0.1
+        done
+    fi
+
+    if kill -0 "$pid" 2>/dev/null; then
+        echo "javaguide-web did not stop: pid $pid" >&2
+        return 1
+    fi
+
+    rm -f "$PID_FILE"
+    echo "stopped javaguide-web: pid $pid"
+}
+
+start_server() {
+    ensure_ready
+
+    if is_pid_running; then
+        pid=$(sed -n '1p' "$PID_FILE")
+        echo "javaguide-web is already running: pid $pid"
+        echo "url: $(server_url "$@")"
+        echo "log: $LOG_FILE"
+        return 0
+    fi
+
+    mkdir -p "$STATE_DIR"
+    : > "$LOG_FILE"
+    if command -v setsid >/dev/null 2>&1; then
+        (
+            cd "$PROJECT_ROOT"
+            exec nohup setsid "$0" foreground "$@"
+        ) >> "$LOG_FILE" 2>&1 &
+    else
+        (
+            cd "$PROJECT_ROOT"
+            exec nohup "$0" foreground "$@"
+        ) >> "$LOG_FILE" 2>&1 &
+    fi
+    pid=$!
+    printf '%s\n' "$pid" > "$PID_FILE"
+    printf '%s\n' "$(server_url "$@")" > "$URL_FILE"
+    sleep 2
+
+    if ! kill -0 "$pid" 2>/dev/null; then
+        rm -f "$PID_FILE"
+        echo "javaguide-web failed to start; log follows:" >&2
+        tail -n 80 "$LOG_FILE" >&2
+        return 1
+    fi
+
+    echo "started javaguide-web: pid $pid"
+    echo "url: $(server_url "$@")"
+    echo "log: $LOG_FILE"
+}
+
+status_server() {
+    if is_pid_running; then
+        pid=$(sed -n '1p' "$PID_FILE")
+        echo "javaguide-web is running: pid $pid"
+        if [ -f "$URL_FILE" ]; then
+            echo "url: $(sed -n '1p' "$URL_FILE")"
+        fi
+        echo "log: $LOG_FILE"
+        return 0
+    fi
+    echo "javaguide-web is not running"
+    return 1
+}
+
+if [ "${1:-}" = "-h" ] || [ "${1:-}" = "--help" ]; then
+    usage
+    exit 0
+fi
+
+command=restart
+case "${1:-}" in
+    start|restart|stop|status|foreground)
+        command=$1
+        shift
+        ;;
+esac
+
+SCRIPT_DIR=$(resolve_script_dir)
+PROJECT_ROOT=$(CDPATH= cd -P "$SCRIPT_DIR/.." >/dev/null 2>&1 && pwd)
+PNPM=${PNPM:-pnpm}
+
+if [ -n "${JAVAGUIDE_WEB_STATE_DIR:-}" ]; then
+    STATE_DIR=$JAVAGUIDE_WEB_STATE_DIR
+elif [ -n "${XDG_STATE_HOME:-}" ]; then
+    STATE_DIR=$XDG_STATE_HOME/javaguide-web
+else
+    STATE_DIR=$HOME/.local/state/javaguide-web
+fi
+
+PID_FILE=${JAVAGUIDE_WEB_PID_FILE:-"$STATE_DIR/javaguide-web.pid"}
+LOG_FILE=${JAVAGUIDE_WEB_LOG_FILE:-"$STATE_DIR/javaguide-web.log"}
+URL_FILE=$STATE_DIR/javaguide-web.url
+
+case "$command" in
+    start)
+        start_server "$@"
+        ;;
+    restart)
+        stop_server
+        start_server "$@"
+        ;;
+    stop)
+        stop_server
+        ;;
+    status)
+        status_server
+        ;;
+    foreground)
+        ensure_ready
+        cd "$PROJECT_ROOT"
+        run_dev "$@"
+        ;;
+esac

@@ -544,8 +544,6 @@ randomAccessFile.write(new byte[]{'H', 'I', 'J', 'K'});
 
 ![](https://oss.javaguide.cn/github/javaguide/java/io/20210609164749122.png)
 
-我在[《Java 面试指北》](https://javaguide.cn/zhuanlan/java-mian-shi-zhi-bei.html)中详细介绍了大文件的上传问题。
-
 ![](https://oss.javaguide.cn/github/javaguide/java/image-20220428104115362.png)
 
 `RandomAccessFile` 的实现依赖于 `FileDescriptor`（文件描述符） 和 `FileChannel`（内存映射文件）。

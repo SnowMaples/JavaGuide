@@ -10,8 +10,6 @@ head:
       content: 数据脱敏,隐私保护,手机号脱敏,身份证脱敏,掩码规则,敏感数据,测试数据,合规
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 > 本文转载完善自[Hutool：一行代码搞定数据脱敏 - 京东云开发者](https://mp.weixin.qq.com/s/1qFWczesU50ndPPLtABHFg)。
 
 ## 什么是数据脱敏
@@ -36,7 +34,7 @@ head:
 - 删除：将敏感数据中的部分内容随机删除。比如，将电话号码的随机 3 位数字进行删除。
 - 重排：将原始数据中的某些字符或字段的顺序打乱。例如，将身份证号码的随机位交错互换。
 - 加噪：在数据中注入一些误差或者噪音，达到对数据脱敏的效果。例如，在敏感数据中添加一些随机生成的字符。
-- 加密（常用）：使用加密算法将敏感数据转换为密文。例如，将银行卡号用 MD5 或 SHA-256 等哈希函数进行散列。常见加密算法总结可以参考这篇文章：<https://javaguide.cn/system-design/security/encryption-algorithms.html> 。
+- 加密（常用）：使用加密算法将敏感数据转换为密文。例如，将银行卡号用 MD5 或 SHA-256 等哈希函数进行散列。常见加密算法总结可以参考这篇文章：</system-design/security/encryption-algorithms.html> 。
 - ……
 
 ## 常用脱敏工具

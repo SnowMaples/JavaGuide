@@ -17,8 +17,6 @@ head:
       content: 梳理计算机网络、操作系统、数据结构与算法等计算机基础知识，适合后端开发者校招、社招复习。
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **计算机基础知识体系** 面向后端学习和面试复习，按“计算机网络 -> 操作系统 -> 数据结构 -> 算法”的顺序整理本站计算机基础相关文章。
 
 如果你时间有限，建议先看 [计算机网络常见面试题总结](./network/other-network-questions.md) 和 [操作系统常见面试题总结](./operating-system/operating-system-basic-questions-01.md)，快速建立高频问题清单；如果你想系统补基础，可以按下面的专题顺序推进。

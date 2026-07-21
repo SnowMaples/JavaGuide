@@ -210,7 +210,7 @@ OpenAI 的 `AGENTS.md` 大约只有 100 行，作用更像目录，指向 `docs/
 
 这和到一个新城市很像。你不需要一上来背完整本旅游指南，先给一张地图，再告诉你想了解某个景点时去翻哪一页，就够用了。
 
-Agent Skills 也可以看成渐进式披露的一种实现。它保留少量元数据，比如名称和描述，详细规则和执行流程只在触发时再加载进上下文。这个思路和 OpenAI 把 `AGENTS.md` 当目录很接近，只是 Skills 把这个模式标准化了。相关阅读可以看这篇：[Agent Skills 详解：是什么？怎么用？和 Prompt、MCP 有什么区别？](https://javaguide.cn/ai/agent/skills.html)。
+Agent Skills 也可以看成渐进式披露的一种实现。它保留少量元数据，比如名称和描述，详细规则和执行流程只在触发时再加载进上下文。这个思路和 OpenAI 把 `AGENTS.md` 当目录很接近，只是 Skills 把这个模式标准化了。相关阅读可以看这篇：[Agent Skills 详解：是什么？怎么用？和 Prompt、MCP 有什么区别？](/ai/agent/skills.html)。
 
 #### 架构约束要靠工具执行
 

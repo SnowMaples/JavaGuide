@@ -36,8 +36,6 @@ MCP 全称是 Model Context Protocol，中文一般叫“模型上下文协议�
 - Context：把外部上下文、工具和数据源带给模型；
 - Protocol：用一套标准协议把交互方式定下来。
 
-不过，也不要把 MCP 理解成给模型加插件这么简单。之前在星球群里看大家讨论 MCP 的时候，有不少同学都是这样认为的。
-
 更准确一点说，MCP 是 **MCP Client 和 MCP Server 之间的通信协议**。Host 负责承载用户交互和模型调用，Client 负责和 Server 说话，Server 负责把具体能力暴露出来。
 
 举个很常见的场景。

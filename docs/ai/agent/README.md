@@ -9,8 +9,6 @@ tag:
 sidebar: false
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 Agent 不是“会调用工具的聊天机器人”。一旦任务变长，它就要处理状态、记忆、权限、失败重试、上下文裁剪和执行边界。
 
 这份 **AI Agent 专题** 面向想理解和落地 Agent 应用的开发者，把 Agent Loop、Memory、Prompt、Context、Tools、MCP、Skills、Harness Engineering 和 Workflow 放到同一条工程主线里看。

@@ -8,8 +8,6 @@ head:
       content: AI 应用架构,Prompt 管理,模型网关,RAG,Memory,Tool Calling,LLM Observability,LLM Evaluation,Java 后端
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 一个最小版 AI 应用很好搭：前端收一句用户问题，后端把问题和系统提示词拼到一起，调一次模型 API，页面上就能返回一段看起来还不错的答案。
 
 Demo 演示到这里基本够了。

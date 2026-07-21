@@ -87,8 +87,6 @@ CC GUI 的核心能力可以概括为以下几点：
 
 CC GUI 支持 **Skill（斜杠命令）**，可以把特定的审查流程固化下来。比如我配置了一个 `java-coding-standards` Skill，它内置了 Google Java Style Guide 和 Spring Boot 最佳实践的审查规则。
 
-这里我们直接以 [AI 智能面试平台](https://javaguide.cn/zhuanlan/interview-guide.html)项目为例，用的时候，直接在对话框输入：
-
 ```
 /java-coding-standards 检查一下 @infrastructure 下的代码
 ```

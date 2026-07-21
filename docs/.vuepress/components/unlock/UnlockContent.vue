@@ -64,12 +64,13 @@ const props = defineProps({
   },
 });
 
-const isUnlocked = ref(false);
+const isUnlocked = ref(!unlockConfig.enabled);
 const inputCode = ref("");
 const showError = ref(false);
 const globalUnlockKey = `javaguide_site_unlocked_${unlockConfig.unlockVersion ?? "v1"}`;
 
 onMounted(() => {
+  if (!unlockConfig.enabled) return;
   isUnlocked.value = localStorage.getItem(globalUnlockKey) === "true";
 });
 

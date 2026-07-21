@@ -183,7 +183,7 @@ Claude Code 就是个很典型的例子。它分析大型代码库的时候不�
 
 这里有个很容易被忽略的点：元数据本身也是信息。`tests/test_utils.py` 和 `src/core_logic/test_utils.py` 语义就不一样，光看路径 Agent 就能判断它们大概率服务于不同目的。
 
-Anthropic 把这种方式叫 **Progressive Disclosure**，**渐进式披露**。Agent 不是一次性拿到所有上下文，而是通过一轮轮探索逐渐理解任务。文件大小暗示复杂度，时间戳暗示相关性，目录结构传递语义。Skills 就是对这种思想的运用，具体可以看这篇：[Agent Skills 是什么？和 Prompt、MCP 到底差在哪？](https://javaguide.cn/ai/agent/skills.html)。
+Anthropic 把这种方式叫 **Progressive Disclosure**，**渐进式披露**。Agent 不是一次性拿到所有上下文，而是通过一轮轮探索逐渐理解任务。文件大小暗示复杂度，时间戳暗示相关性，目录结构传递语义。Skills 就是对这种思想的运用，具体可以看这篇：[Agent Skills 是什么？和 Prompt、MCP 到底差在哪？](/ai/agent/skills.html)。
 
 不过按需加载也有它的代价——比预检索慢，而且需要工程师提供好用的导航工具（glob、grep、tree 之类）。导航工具不好用或者启发式规则写得差，Agent 很容易追进死胡同，浪费上下文和调用次数。所以 Just-in-Time 并不是“不预处理”，恰恰相反，它对工具集和导航策略的要求反而更高。
 

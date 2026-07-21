@@ -11,8 +11,6 @@ head:
       content: 技术书籍推荐,计算机书籍,Java书籍,数据库书籍,分布式系统书籍,计算机基础书籍,软件质量书籍,程序员书单,后端书单
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **技术书籍精选** 面向程序员系统学习和长期成长，整理 Java、数据库、分布式系统、计算机基础、搜索引擎、软件质量等方向的优质书单。
 
 书单来自开源项目 [CodingDocs/awesome-cs](https://github.com/CodingDocs/awesome-cs)，会持续更新。欢迎在项目 [issues 区](https://github.com/CodingDocs/awesome-cs/issues) 推荐你认可的技术书籍，一起维护一个更高质量的中文技术书单。

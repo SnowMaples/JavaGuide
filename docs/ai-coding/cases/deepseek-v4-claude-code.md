@@ -8,8 +8,6 @@ head:
       content: DeepSeek V4,Claude Code,AI编程,代码审计,Agent Coding,V4-Pro,V4-Flash
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 这几天 AI 圈基本被一件事刷屏了——DeepSeek V4 发布，同步开源。从技术报告里的 benchmark 数据到社区的实测反馈，到处都在讨论。
 
 开源模型在对话和写作上已经做得相当成熟，各家你追我赶，迭代速度肉眼可见。但 Agent Coding 是另一回事。

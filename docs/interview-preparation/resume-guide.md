@@ -10,7 +10,6 @@ head:
 ---
 
 ::: tip 友情提示
-本文节选自 **[《Java 面试指北》](../zhuanlan/java-mian-shi-zhi-bei.md)**。这是一份教你如何更高效地准备面试的小册，涵盖常见八股文（系统设计、常见框架、分布式、高并发 ……）、优质面经等内容。
 :::
 
 ## 前言
@@ -58,10 +57,6 @@ head:
 - 技术名词最好规范大小写比较好，比如 java->Java ，spring boot -> Spring Boot 。这个虽然有些面试官不会介意，但是很多面试官都会在意这个细节的。
 - 中文和数字英文之间加上空格的话看起来会舒服一点。
 
-另外，知识星球里还有真实的简历模板可供参考，地址：<https://t.zsxq.com/12ypxGNzU> （需加入[知识星球](https://javaguide.cn/about-the-author/zhishixingqiu-two-years.html)获取）。
-
-![](https://oss.javaguide.cn/javamianshizhibei/image-20230918073550606.png)
-
 ## 简历内容
 
 ### 个人信息
@@ -70,8 +65,6 @@ head:
 - 潜在加分项 ： Github 地址、博客地址（如果技术博客和 Github 上没有什么内容的话，就不要写了）
 
 示例：
-
-![](https://oss.javaguide.cn/zhishixingqiu/20210428212337599.png)
 
 **简历要不要放照片呢？** 很多人写简历的时候都有这个问题。
 
@@ -82,8 +75,6 @@ head:
 你想要应聘什么岗位，希望在什么城市。另外，你也可以将求职意向放到个人信息这块写。
 
 示例：
-
-![](https://oss.javaguide.cn/zhishixingqiu/20210428212410288.png)
 
 ### 教育经历
 
@@ -100,11 +91,7 @@ head:
 
 下面是一份最新的 Java 后端开发技能清单，你可以根据自身情况以及岗位招聘要求做动态调整，核心思想就是尽可能满足岗位招聘的所有技能要求。
 
-![Java 后端技能模板](https://oss.javaguide.cn/zhishixingqiu/jinengmuban.png)
-
 我这里再单独放一个我看过的某位同学的技能介绍，我们来找找问题。
-
-![](https://oss.javaguide.cn/zhishixingqiu/up-a58d644340f8ce5cd32f9963f003abe4233.png)
 
 上图中的技能介绍存在的问题：
 
@@ -187,13 +174,7 @@ head:
 
 **4、如果你觉得你的项目技术比较落后的话，可以自己私下进行改进。重要的是让项目比较有亮点，通过什么方式就无所谓了。**
 
-项目经历这部分对于简历来说非常重要，[《Java 面试指北》](https://javaguide.cn/zhuanlan/java-mian-shi-zhi-bei.html)的面试准备篇有好几篇关于优化项目经历的文章，建议你仔细阅读一下，应该会对你有帮助。
-
-![](https://oss.javaguide.cn/zhishixingqiu/4e11dbc842054e53ad6c5f0445023eb5~tplv-k3u1fbpfcp-zoom-1.png)
-
 **5、避免个人职责介绍都是围绕一个技术点来写，非常不可取。**
-
-![](https://oss.javaguide.cn/zhishixingqiu/image-20230424222513028.png)
 
 **6、避免模糊性描述，介绍要具体（技术+场景+效果），也要注意精简语言（避免堆砌技术词，省略不必要的描述）。**
 
@@ -258,8 +239,6 @@ FAB 法则由下面 3 个单词组成（FAB 法则的名字就是由它们的首
 
 看了几千份简历，有少部分同学的简历页数都接近 10 页了，让我头皮发麻。
 
-![简历页数过多](https://oss.javaguide.cn/zhishixingqiu/image-20230508223646164.png)
-
 ### 避免语义模糊
 
 尽量避免主观表述，少一点语义模糊的形容词。表述要简洁明了，简历结构要清晰。
@@ -285,16 +264,4 @@ FAB 法则由下面 3 个单词组成（FAB 法则的名字就是由它们的首
 
 ## 简历修改
 
-到目前为止，我至少帮助 **6000+** 位球友提供了免费的简历修改服务。由于个人精力有限，修改简历仅限加入星球的读者，需要帮看简历的话，可以加入 [**JavaGuide 官方知识星球**](https://javaguide.cn/about-the-author/zhishixingqiu-two-years.html#%E7%AE%80%E5%8E%86%E4%BF%AE%E6%94%B9)（点击链接查看详细介绍）。
-
-![img](https://oss.javaguide.cn/xingqiu/%E7%AE%80%E5%8E%86%E4%BF%AE%E6%94%B92.jpg)
-
-虽然收费只有培训班/训练营的百分之一，但是知识星球里的内容质量更高，提供的服务也更全面，非常适合准备 Java 面试和学习 Java 的同学。
-
-下面是星球提供的部分服务（点击下方图片即可获取知识星球的详细介绍）：
-
-[![星球服务](https://oss.javaguide.cn/xingqiu/xingqiufuwu.png)](../about-the-author/zhishixingqiu-two-years.md)
-
 这里再提供一份限时专属优惠卷：
-
-![知识星球30元优惠卷](https://oss.javaguide.cn/xingqiu/xingqiuyouhuijuan-30.jpg)

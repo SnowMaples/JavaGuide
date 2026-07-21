@@ -4,8 +4,6 @@ description: JavaGuide作者Guide个人介绍，19年本科毕业、大学期间
 category: 走近作者
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这篇文章我会通过 Q&A 的形式简单介绍一下我自己。
 
 ## 我是什么时候毕业的？

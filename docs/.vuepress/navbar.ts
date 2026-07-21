@@ -38,11 +38,6 @@ export default navbar([
         link: "/interview-preparation/pdf-interview-javaguide.md",
       },
       {
-        text: "面试突击",
-        icon: "mdi:file-pdf-box",
-        link: "https://interview.javaguide.cn/home.html",
-      },
-      {
         text: "更新历史",
         icon: "mdi:history",
         link: "/timeline/",

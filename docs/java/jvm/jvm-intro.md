@@ -271,7 +271,7 @@ finalize()是 Object 类的一个方法、一个对象的 finalize()方法只会
 
 ### 3.4 垃圾回收算法
 
-关于常见垃圾回收算法的详细介绍，建议阅读这篇：[JVM 垃圾回收详解（重点）](https://javaguide.cn/java/jvm/jvm-garbage-collection.html)。
+关于常见垃圾回收算法的详细介绍，建议阅读这篇：[JVM 垃圾回收详解（重点）](/java/jvm/jvm-garbage-collection.html)。
 
 ### 3.5（了解）各种各样的垃圾回收器
 

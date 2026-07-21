@@ -167,7 +167,7 @@ public class MyBloomFilter {
 测试：
 
 ```java
-String value1 = "https://javaguide.cn/";
+String value1 = "/";
 String value2 = "https://github.com/Snailclimb";
 MyBloomFilter filter = new MyBloomFilter();
 System.out.println(filter.contains(value1));

@@ -10,8 +10,6 @@ head:
       content: LinkedList源码,双向链表,Deque接口,LinkedList与ArrayList区别,插入删除性能,链表实现
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 ## LinkedList 简介
 
 `LinkedList` 是一个基于双向链表实现的集合类，经常被拿来和 `ArrayList` 做比较。关于 `LinkedList` 和 `ArrayList` 的详细对比，我们 [Java 集合常见面试题总结(上)](./java-collection-questions-01.md)有详细介绍到。

@@ -135,8 +135,6 @@ SSE 在传输层仍是 HTTP，但**应用层是一份 UTF-8 纯文本协议**。
 
 **`\n\n` 是事件分隔符**。只要在“本应属于同一段模型增量”的字符串里出现了“裸的换行”，就有可能被客户端解析成“上一个事件已结束、下一个事件开始”。这是很多团队在 Demo 里没问题、一上对话界面加 Markdown 或列表就炸裂的根因。
 
-小 G 在[《SpringAI 智能面试平台+RAG 知识库》](https://javaguide.cn/zhuanlan/interview-guide.html)的知识库问答里用的就是 SSE：模型一边生成，浏览器一边打字机展示；链路不长，但协议细节一个不落下。
-
 ### Spring Boot + Spring AI 的 SSE 写法
 
 Java 侧常见做法是 **`Content-Type: text/event-stream`**，再用响应式流往外推。Spring 提供了 `ServerSentEvent<T>`，避免手写 `data:` 和 `\n\n` 拼串出错：
@@ -425,7 +423,7 @@ Gemini 官方限流文档把限流维度拆成 RPM、输入 TPM、RPD，并说�
 - 供应商级：全局令牌桶 + 熔断器
 - 流式请求：并发信号量 + 总时长限制
 
-关于限流算法的详细介绍，可以参考这篇文章：[服务限流详解](https://javaguide.cn/high-availability/limit-request.html)。
+关于限流算法的详细介绍，可以参考这篇文章：[服务限流详解](/high-availability/limit-request.html)。
 
 ### 收到 429 应该怎么处理
 

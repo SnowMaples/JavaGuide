@@ -12,7 +12,7 @@ head:
       content: 高性能面试题,高性能系统设计,CDN面试题,负载均衡面试题,读写分离面试题,分库分表面试题,SQL优化面试题,深度分页面试题,消息队列面试题,Kafka面试题,RocketMQ面试题,RabbitMQ面试题
 ---
 
-这部分内容摘自 [JavaGuide](https://javaguide.cn/) 高性能专题的重点文章，适合在系统复习之后用来查漏补缺。
+这部分内容摘自 [JavaGuide](/) 高性能专题的重点文章，适合在系统复习之后用来查漏补缺。
 
 高性能面试题通常不会只考一个概念。面试官更关心你能不能把问题放回真实链路里：请求从入口进来，经过负载均衡、应用服务、缓存、数据库、消息队列之后，哪个环节慢了，哪个环节扛不住，哪个方案能解决，方案又会带来什么新问题。
 
@@ -20,23 +20,23 @@ head:
 
 高性能基础：
 
-- [CDN 工作原理详解](https://javaguide.cn/high-performance/cdn.html)
-- [负载均衡原理及算法详解](https://javaguide.cn/high-performance/load-balancing.html)
+- [CDN 工作原理详解](/high-performance/cdn.html)
+- [负载均衡原理及算法详解](/high-performance/load-balancing.html)
 
 数据库性能优化：
 
-- [读写分离和分库分表详解](https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html)
-- [数据冷热分离详解](https://javaguide.cn/high-performance/data-cold-hot-separation.html)
-- [常见 SQL 优化手段总结](https://javaguide.cn/high-performance/sql-optimization.html)
-- [深度分页介绍及优化建议](https://javaguide.cn/high-performance/deep-pagination-optimization.html)
+- [读写分离和分库分表详解](/high-performance/read-and-write-separation-and-library-subtable.html)
+- [数据冷热分离详解](/high-performance/data-cold-hot-separation.html)
+- [常见 SQL 优化手段总结](/high-performance/sql-optimization.html)
+- [深度分页介绍及优化建议](/high-performance/deep-pagination-optimization.html)
 
 消息队列：
 
-- [消息队列基础常见问题总结](https://javaguide.cn/high-performance/message-queue/message-queue.html)
-- [Kafka 常见面试题总结](https://javaguide.cn/high-performance/message-queue/kafka-questions-01.html)
-- [RocketMQ 常见面试题总结](https://javaguide.cn/high-performance/message-queue/rocketmq-questions.html)
-- [RabbitMQ 常见面试题总结](https://javaguide.cn/high-performance/message-queue/rabbitmq-questions.html)
-- [Disruptor 常见面试题总结](https://javaguide.cn/high-performance/message-queue/disruptor-questions.html)
+- [消息队列基础常见问题总结](/high-performance/message-queue/message-queue.html)
+- [Kafka 常见面试题总结](/high-performance/message-queue/kafka-questions-01.html)
+- [RocketMQ 常见面试题总结](/high-performance/message-queue/rocketmq-questions.html)
+- [RabbitMQ 常见面试题总结](/high-performance/message-queue/rabbitmq-questions.html)
+- [Disruptor 常见面试题总结](/high-performance/message-queue/disruptor-questions.html)
 
 ## 回答高性能问题的通用思路
 

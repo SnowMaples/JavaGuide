@@ -9,8 +9,6 @@ tag:
 sidebar: false
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 AI 应用开发面试很少只问“概念是什么”。更常见的是顺着一个项目往下追：为什么这样设计，出了问题怎么排查，上线后怎么评测，成本和安全怎么管。
 
 这份 **AI 应用开发面试题专题** 面向 AI 工程师、AI 应用开发和后端转 AI 岗位复习，把“大模型基础、AI Agent、RAG、AI 系统设计”这些问题串成一条复习路线。

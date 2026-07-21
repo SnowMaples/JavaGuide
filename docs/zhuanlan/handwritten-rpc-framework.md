@@ -22,5 +22,3 @@ head:
 
 - GitHub 地址：[https://github.com/Snailclimb/guide-rpc-framework](https://github.com/Snailclimb/guide-rpc-framework) 。
 - Gitee 地址：[https://gitee.com/SnailClimb/guide-rpc-framework](https://gitee.com/SnailClimb/guide-rpc-framework) 。
-
-<!-- @include: @planet2.snippet.md -->

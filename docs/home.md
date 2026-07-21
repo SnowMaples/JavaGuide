@@ -11,8 +11,6 @@ head:
       content: Java面试,Java面试指南,Java八股文,Java面试题,Java基础面试,JVM面试,并发面试,线程池面试,Spring面试,MySQL面试,Redis面试,系统设计面试,分布式面试,后端面试
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 <!-- markdownlint-disable MD024 -->
 
 JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复习资料**，内容覆盖 Java 基础、集合、并发编程、JVM、Spring/Spring Boot、MySQL、Redis、分布式、高并发、高可用和系统设计等核心知识点。
@@ -22,7 +20,7 @@ JavaGuide 是一份系统化的 **Java 面试指南** 和**后端通用面试复
 本站所有内容都已免费开源，欢迎一起[维护完善](http://localhost:8080/javaguide/contribution-guideline.html)，有帮助的话，欢迎 Star！
 
 - **项目地址**：<https://github.com/Snailclimb/JavaGuide>
-- **在线阅读**：<https://javaguide.cn/>
+- **在线阅读**：</>
 
 ## 延伸资料
 
@@ -143,8 +141,6 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 ## 计算机基础
 
 > 计算机基础（计算机网络、操作系统、数据结构与算法）已独立为单独模块，详见 [计算机基础知识总结](./cs-basics/)。
-
-[![Banner](https://oss.javaguide.cn/xingqiu/xingqiu.png)](./about-the-author/zhishixingqiu-two-years.md)
 
 ## 数据库
 
@@ -328,8 +324,8 @@ JVM 这部分内容主要参考 [JVM 虚拟机规范-Java8](https://docs.oracle.
 
 ### 分布式锁
 
-- [分布式锁介绍](https://javaguide.cn/distributed-system/distributed-lock.html)
-- [分布式锁常见实现方案总结](https://javaguide.cn/distributed-system/distributed-lock-implementations.html)
+- [分布式锁介绍](/distributed-system/distributed-lock.html)
+- [分布式锁常见实现方案总结](/distributed-system/distributed-lock-implementations.html)
 
 ### 分布式事务
 

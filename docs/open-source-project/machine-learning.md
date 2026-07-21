@@ -98,8 +98,6 @@ AgentScope 提供了 Python 和 Java 版本，二者核心能力完全对齐！
 
 > **提示**：架构图采用 draw.io 绘制，导出为 svg 格式，在 Github Dark 模式下的显示效果会有问题。
 
-![系统架构图](https://oss.javaguide.cn/xingqiu/pratical-project/interview-guide/interview-guide-architecture-diagram.png)
-
 ### AI 工作流编排系统
 
 [PaiAgent](https://github.com/itwanger/PaiAgent) 是一个**企业级的 AI 工作流可视化编排平台**，让 AI 能力的组合和调度变得简单高效。通过直观的拖拽式界面，开发者和业务人员都能快速构建复杂的 AI 处理流程，无需编写代码即可实现多种大模型的协同工作。

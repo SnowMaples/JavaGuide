@@ -83,8 +83,6 @@ head:
 
 在工作中，我们通常会使用 **Nginx** 来做七层负载均衡，LVS(Linux Virtual Server 虚拟服务器， Linux 内核的 4 层负载均衡)来做四层负载均衡。
 
-关于 Nginx 的常见知识点总结，[《Java 面试指北》](https://javaguide.cn/zhuanlan/java-mian-shi-zhi-bei.html) 中「技术面试题篇」中已经有对应的内容了，感兴趣的小伙伴可以去看看。
-
 ![](https://oss.javaguide.cn/github/javaguide/image-20220328105759300.png)
 
 不过，LVS 这个绝大部分公司真用不上，像阿里、百度、腾讯、eBay 等大厂才会使用到，用的最多的还是 Nginx。

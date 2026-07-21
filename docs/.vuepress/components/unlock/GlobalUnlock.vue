@@ -90,6 +90,8 @@ const isPathInPrefix = (currentPath: string, prefix: string) => {
 };
 
 const isLockedPage = computed(() => {
+  if (!config.enabled) return false;
+
   const currentPath = normalizePath(pageData.value.path);
   const byExactPath = Object.keys(config.protectedPaths)
     .map((p) => normalizePath(p))

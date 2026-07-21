@@ -23,7 +23,6 @@ export const aboutTheAuthor = arraySidebar([
       "deprecated-java-technologies",
       "my-article-was-stolen-and-made-into-video-and-it-became-popular",
       "dog-that-copies-other-people-essay",
-      "zhishixingqiu-two-years",
     ],
   },
 ]);

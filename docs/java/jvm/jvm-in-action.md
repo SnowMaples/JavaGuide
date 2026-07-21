@@ -29,7 +29,7 @@ JVM 线上问题排查和性能调优也是面试常问的一个问题，尤其�
 - **临时解决办法**：紧急回滚至上一稳定版本。
 - **分析**：使用 MAT (Memory Analyzer Tool)工具分析 dump 文件。
 - **建议**：正常情况下，`-Xmn` 参数（控制 Young 区的大小）总是应当小于 `-Xmx` 参数（控制堆内存的最大大小），否则就会触发 OOM 错误。
-- **资料**：[最重要的 JVM 参数总结 - JavaGuide - 2023](https://javaguide.cn/java/jvm/jvm-parameters-intro.html)
+- **资料**：[最重要的 JVM 参数总结 - JavaGuide - 2023](/java/jvm/jvm-parameters-intro.html)
 
 [一次大量 JVM Native 内存泄露的排查分析（64M 问题） - 掘金 - 2022](https://juejin.cn/post/7078624931826794503)
 

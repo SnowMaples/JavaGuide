@@ -15,8 +15,6 @@ head:
       content: 高性能系统,高性能系统设计,高性能面试题,CDN,负载均衡,读写分离,分库分表,冷热分离,深度分页,SQL优化,消息队列,Kafka,RocketMQ,RabbitMQ,Disruptor,后端面试
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **高性能系统知识体系** 面向后端学习、系统设计和面试复习，围绕“减少延迟、提升吞吐、削峰填谷、降低数据库压力、优化数据访问路径”整理本站高性能相关文章。
 
 如果你时间有限，建议先看 [高性能系统设计面试题总结](./high-performance-interview-questions.md)，快速建立高频问题清单；如果你想系统补基础，可以按下面的阅读顺序推进。

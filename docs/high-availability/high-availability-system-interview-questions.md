@@ -12,23 +12,23 @@ head:
       content: 高可用面试题,高可用系统设计面试题,2026 高可用面试题,SLA 面试题,单点故障,限流面试题,降级面试题,熔断面试题,超时重试面试题,接口幂等面试题,RTO,RPO,性能压测,故障演练
 ---
 
-这部分内容摘自 [JavaGuide](https://javaguide.cn/) 下面几篇文章的重点：
+这部分内容摘自 [JavaGuide](/) 下面几篇文章的重点：
 
 高可用设计：
 
-- [高可用系统设计指南](https://javaguide.cn/high-availability/high-availability-system-design.html)
-- [冗余设计详解](https://javaguide.cn/high-availability/redundancy.html)
-- [性能测试入门](https://javaguide.cn/high-availability/performance-test.html)
+- [高可用系统设计指南](/high-availability/high-availability-system-design.html)
+- [冗余设计详解](/high-availability/redundancy.html)
+- [性能测试入门](/high-availability/performance-test.html)
 
 限流、降级、熔断：
 
-- [服务限流详解](https://javaguide.cn/high-availability/limit-request.html)
-- [降级&熔断详解](https://javaguide.cn/high-availability/fallback-and-circuit-breaker.html)
+- [服务限流详解](/high-availability/limit-request.html)
+- [降级&熔断详解](/high-availability/fallback-and-circuit-breaker.html)
 
 超时、重试、幂等：
 
-- [超时&重试详解](https://javaguide.cn/high-availability/timeout-and-retry.html)
-- [接口幂等方案总结](https://javaguide.cn/high-availability/idempotency.html)
+- [超时&重试详解](/high-availability/timeout-and-retry.html)
+- [接口幂等方案总结](/high-availability/idempotency.html)
 
 ## 高可用基础
 

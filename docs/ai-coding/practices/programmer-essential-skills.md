@@ -8,7 +8,7 @@ head:
       content: AI编程,Skills,Superpowers,Claude Code,Cursor,代码审查,TDD,UI设计,网页自动化,MCP,Claude API
 ---
 
-你好，我是小 G。之前写了篇[万字详解 Agent Skills](https://javaguide.cn/ai/agent/skills.html)，聊了 Skills 是什么、怎么用、和 Prompt / MCP 有什么区别。这篇不聊概念，直接分享 10 个我觉得程序员很值得装的 Skills，覆盖开发流程、代码审查、UI 设计、网页操作、前端验收、MCP 开发和 API 接入这些场景：
+你好，我是小 G。之前写了篇[万字详解 Agent Skills](/ai/agent/skills.html)，聊了 Skills 是什么、怎么用、和 Prompt / MCP 有什么区别。这篇不聊概念，直接分享 10 个我觉得程序员很值得装的 Skills，覆盖开发流程、代码审查、UI 设计、网页操作、前端验收、MCP 开发和 API 接入这些场景：
 
 - 让 AI 自动遵循 TDD 流程，先写测试再写实现
 - 把模糊需求整理成 PRD、技术方案或决策文档

@@ -68,5 +68,3 @@ head:
 - [分布式系统知识体系](../distributed-system/)
 - [Java 开源项目精选](../open-source-project/)
 - [高质量技术文章](../high-quality-technical-articles/)
-
-<!-- @include: @planet2.snippet.md -->

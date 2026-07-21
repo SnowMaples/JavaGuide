@@ -11,8 +11,6 @@ head:
       content: 高质量技术文章,程序员成长,程序员职业发展,程序员工作经验,程序员面试经验,技术成长,职场经验,程序人生
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **高质量技术文章精选** 收录程序员成长、工作经验、面试复盘、职业选择和技术学习方法相关内容。它不是具体技术点清单，更适合在学习、求职、入职、转岗、晋升等阶段反复阅读。
 
 如果你时间有限，建议先看 [程序员如何快速学习新技术](./advanced-programmer/programmer-quickly-learn-new-technology.md) 和 [从面试官和候选者的角度谈如何准备技术初试](./interview/technical-preliminary-preparation.md)，一个解决学习方法，一个解决面试准备。
@@ -85,6 +83,5 @@ head:
 - [计算机基础知识体系](../cs-basics/)
 - [技术书籍精选](../books/)
 - [Java 开源项目精选](../open-source-project/)
-- [星球专属优质专栏](../zhuanlan/)
 
 <!-- @include: @article-footer.snippet.md -->

@@ -8,7 +8,7 @@ head:
       content: CLAUDE.md,Claude Code,AI编程,AI项目规范,Agentic Coding,AI辅助开发,CLAUDE.md最佳实践,.claude/rules
 ---
 
-你好，我是小 G。前几天分享 [Claude Code 使用技巧](https://javaguide.cn/ai-coding/practices/claudecode-tips.html) 的时候，我提到了一个很重要的文件 `CLAUDE.md`，并简单介绍了一下。
+你好，我是小 G。前几天分享 [Claude Code 使用技巧](/ai-coding/practices/claudecode-tips.html) 的时候，我提到了一个很重要的文件 `CLAUDE.md`，并简单介绍了一下。
 
 有 G 友在评论区留言：这个文件既然这么重要，能不能单独写一篇来讲？
 
@@ -68,7 +68,7 @@ README 主要是写给人看的，重点是介绍项目信息；`CLAUDE.md` 则�
 - 使用 plan mode 处理 `src/billing/` 下的改动
 ```
 
-以及在我的 [一文搞懂 Harness Engineering](https://javaguide.cn/ai/agent/harness-engineering.html) 这篇文章也提到过：OpenAI 的 `AGENTS.md` 大约只有 100 行，作用更像目录，指向 docs/ 目录下更深层的设计文档、架构图、执行计划和质量评级。这就是渐进式披露：先给最关键的信息，需要更多细节时再加载。
+以及在我的 [一文搞懂 Harness Engineering](/ai/agent/harness-engineering.html) 这篇文章也提到过：OpenAI 的 `AGENTS.md` 大约只有 100 行，作用更像目录，指向 docs/ 目录下更深层的设计文档、架构图、执行计划和质量评级。这就是渐进式披露：先给最关键的信息，需要更多细节时再加载。
 
 ### CLAUDE.md vs .claude/rules/
 
@@ -212,8 +212,6 @@ Anthropic 建议保持 `CLAUDE.md` 精简不超过 200 行，只保留 Claude �
 建议直接去 GitHub 读原文。这里就不整段贴了，重点看它的写法：规则不多，但每条都很有指向性，管的是 Claude 在不同项目里都可能犯的通用错误。
 
 #### 项目级示例：把仓库规矩写成速查卡
-
-另一个例子是我的 [interview-guide](https://javaguide.cn/zhuanlan/interview-guide.html)。它属于项目级 `CLAUDE.md`，重点不是把文档写长，而是把 Claude 容易猜错、代码里又读不完整的信息放到一眼能扫到的位置：技术栈版本、分层边界、命名后缀、异常处理、事务规则、禁止清单。
 
 下面是一个更适合放在根目录 `CLAUDE.md` 的精简版。主文件只保留技术栈、命令、核心边界和禁止清单；更细的规范，交给 `.claude/rules/` 按需加载。
 

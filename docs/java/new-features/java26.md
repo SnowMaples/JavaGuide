@@ -40,7 +40,7 @@ JDK 26 为 `java.net.http.HttpClient` API 正式添加了 **HTTP/3** 支持，�
 - **更快的连接建立**：HTTP/2 需要经过经典的 TCP 三次握手过程（由于安全的 HTTPS 连接建立还需要 TLS 握手，共需要大约 3 个 RTT）。由于 QUIC 协议的特性（TLS 1.3，TLS 1.3 除了支持 1 个 RTT 的握手，还支持 0 个 RTT 的握手）连接建立仅需 0-RTT 或者 1-RTT。这意味着 QUIC 在最佳情况下不需要任何的额外往返时间就可以建立新连接。
 - **更好的移动端体验**：HTTP/3.0 支持连接迁移，因为 QUIC 使用 64 位 ID 标识连接，只要 ID 不变就不会中断，网络环境改变时（如从 Wi-Fi 切换到移动数据）也能保持连接。而 TCP 连接是由（源 IP，源端口，目的 IP，目的端口）组成，这个四元组中一旦有一项值发生改变，这个连接也就不能用了。
 
-详细介绍可以阅读这篇文章：[计算机网络常见面试题总结（上）](https://javaguide.cn/cs-basics/network/other-network-questions.html)（网络分层模型、常见网路协议总结、HTTP、WebSocket、DNS 等）
+详细介绍可以阅读这篇文章：[计算机网络常见面试题总结（上）](/cs-basics/network/other-network-questions.html)（网络分层模型、常见网路协议总结、HTTP、WebSocket、DNS 等）
 
 **使用方式**：
 
@@ -69,7 +69,7 @@ HttpClient client = HttpClient.newBuilder()
     .build();
 
 // 设置单个HttpRequest对象的首选协议版本
-HttpRequest request = HttpRequest.newBuilder(URI.create("https://javaguide.cn/"))
+HttpRequest request = HttpRequest.newBuilder(URI.create("/"))
                          .version(HttpClient.Version.HTTP_3)
                          .GET().build();
 ```

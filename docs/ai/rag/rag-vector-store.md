@@ -179,8 +179,6 @@ ANN 是现代向量检索的主流。它接受一个工程取舍：不保证 100
 
 ## 你的项目使用的什么向量索引算法？
 
-这里以 [《SpringAI 智能面试平台+RAG 知识库》](https://javaguide.cn/zhuanlan/interview-guide.html)项目为例。
-
 项目里用的是 PostgreSQL 的 pgvector 扩展，并配置了 HNSW 索引。
 
 为什么选 HNSW？因为在当前业务规模下，它在检索速度、召回率和工程复杂度之间比较均衡。
@@ -341,8 +339,6 @@ flowchart TB
 
 ## 你为什么选择 PostgreSQL + pgvector？
 
-这里以 [《SpringAI 智能面试平台+RAG 知识库》](https://javaguide.cn/zhuanlan/interview-guide.html)项目为例。这个项目需要同时存结构化数据，比如简历、面试记录，也要存向量数据，也就是文档 Embedding。
-
 方案对比如下：
 
 | 方案                    | 优点                     | 缺点                       | 适用规模       |
@@ -441,8 +437,6 @@ MySQL 这边要分版本看。MySQL 8.x 系列，包括 8.4 LTS，没有官方 `
 ![VECTOR 列不能用作任何类型的键，包括主键、外键、唯一键和分区键](https://oss.javaguide.cn/github/javaguide/ai/rag/mysql9-vector-cannot-be-used-as-any-type-of-key.png)
 
 关于 MySQL 和 PostgreSQL 的详细对比，可以参考我写的这篇文章：[MySQL vs PostgreSQL，如何选择？](https://mp.weixin.qq.com/s/APWD-PzTcTqGUuibAw7GGw)。
-
-<!-- @include: @rag-project.snippet.md -->
 
 ## 总结
 

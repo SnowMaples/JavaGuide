@@ -28,7 +28,7 @@ AI Agent 不是突然冒出来的。它大概经历了几次明显变化。
 
 **2022 年，ChatGPT 这类产品刚火的时候**，大家主要还在和模型“对话”。能力很强，但它只能基于已有知识回答问题，不能主动调用外部工具，也不能自己完成操作。
 
-当时最重要的玩法是 [Prompt Engineering](https://javaguide.cn/ai/agent/prompt-engineering.html)。你把提示词写得越清楚，它回答得越稳。
+当时最重要的玩法是 [Prompt Engineering](/ai/agent/prompt-engineering.html)。你把提示词写得越清楚，它回答得越稳。
 
 但它本质上还是会说，不是会做。
 
@@ -48,7 +48,7 @@ Coze、Dify 这类平台把开发门槛降了下来，用 DAG（有向无环图�
 
 **2024 年底，标准化和多模态开始变重要。**
 
-[MCP 协议](https://javaguide.cn/ai/agent/mcp.html)出现，解决工具接入碎片化的问题。Computer Use 让 Agent 可以操作图形界面。
+[MCP 协议](/ai/agent/mcp.html)出现，解决工具接入碎片化的问题。Computer Use 让 Agent 可以操作图形界面。
 
 AI 编程工具也在这个阶段快速发展。Cursor、Claude Code、Codex 这类工具把代码库阅读、修改、测试、提交串了起来，“Vibe Coding”也在这个阶段被更多人讨论。
 
@@ -237,7 +237,7 @@ OpenAI Schema 解决数据格式问题，MCP 解决通信接入问题。
 
 Claude Code、Cursor 这类工具已经原生支持这套模式，会自动扫描项目里的 `.claude/skills/` 目录，由模型自己判断哪个 Skill 该激活。
 
-纯代码封装、调用路径固定，用 Toolkits。团队经验沉淀、任务流程灵活，用 Agent Skills 更合适。更详细的 Skills 工程实践——包括路由设计、SKILL.md 写法避坑、第三方 Skill 安全审计，可以看：[《Agent Skills 详解》](https://javaguide.cn/ai/agent/skills.html)。
+纯代码封装、调用路径固定，用 Toolkits。团队经验沉淀、任务流程灵活，用 Agent Skills 更合适。更详细的 Skills 工程实践——包括路由设计、SKILL.md 写法避坑、第三方 Skill 安全审计，可以看：[《Agent Skills 详解》](/ai/agent/skills.html)。
 
 ### 通信接入：MCP 协议
 
@@ -273,7 +273,7 @@ JSON Schema 是数据格式，MCP 是通信协议层。
 
 Prompt（提示词）可以简单理解为给大语言模型下达的指令。Prompt Engineering 就是怎么把这条指令写清楚，让模型输出更可控。关键在边界是否清晰——指令越模糊，模型越容易乱猜；指令越结构化，输出就越稳定。
 
-这块展开讲内容很多，可以单独看这篇：[《提示词工程（Prompt Engineering）》](https://javaguide.cn/ai/agent/prompt-engineering.html)。
+这块展开讲内容很多，可以单独看这篇：[《提示词工程（Prompt Engineering）》](/ai/agent/prompt-engineering.html)。
 
 ## 什么是 Context Engineering？
 
@@ -285,7 +285,7 @@ Prompt Engineering 更偏提示词怎么写，Context Engineering 管得更宽�
 
 ![Context Engineering 和 Prompt Engineering 差别](https://oss.javaguide.cn/github/javaguide/ai/context-engineering/context-engineering-vs-context-engineering-dimension-comparison.png)
 
-这块展开讲内容很多，可以单独看这篇：[《提示词工程（Prompt Engineering）》](https://javaguide.cn/ai/agent/prompt-engineering.html) 和 [《上下文工程（Context Engineering）》](https://javaguide.cn/ai/agent/context-engineering.html)。
+这块展开讲内容很多，可以单独看这篇：[《提示词工程（Prompt Engineering）》](/ai/agent/prompt-engineering.html) 和 [《上下文工程（Context Engineering）》](/ai/agent/context-engineering.html)。
 
 ## Agent 核心范式有哪些？
 
@@ -435,7 +435,7 @@ Node 只做一件事，读取状态、执行逻辑、写回结果。节点里可
 
 “审核不通过就回到修改，最多重试 3 次”，翻译成图结构，是一条从 ReviewNode 指向 ReviseNode 的条件边，加上 `iteration_count >= 3` 时跳到 ExitNode 的安全边界。State 里的 `iteration_count` 是让这条逻辑能跑起来的关键。
 
-这套图结构比写死的 if-else 链更容易扩展，出了问题也好定位到哪个节点哪条边。LangGraph（Python）和 Spring AI Alibaba Graph（Java）都是基于这套思路实现的。详细设计和代码实现可以看：[《AI 工作流中的 Workflow、Graph 与 Loop》](https://javaguide.cn/ai/agent/workflow-graph-loop.html)。
+这套图结构比写死的 if-else 链更容易扩展，出了问题也好定位到哪个节点哪条边。LangGraph（Python）和 Spring AI Alibaba Graph（Java）都是基于这套思路实现的。详细设计和代码实现可以看：[《AI 工作流中的 Workflow、Graph 与 Loop》](/ai/agent/workflow-graph-loop.html)。
 
 ### 什么时候用 Agent，什么时候用 Workflow？
 

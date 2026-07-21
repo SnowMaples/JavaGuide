@@ -15,8 +15,6 @@ head:
       content: Java,Java基础,Java集合,Java并发,JVM,Java IO,Java NIO,Java新特性,Java面试题,Java后端面试
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **Java 知识体系** 面向 Java 后端学习和面试复习，按“基础语法 -> 集合容器 -> 并发编程 -> IO/NIO -> JVM -> 新特性”的顺序整理本站 Java 相关文章。
 
 如果你时间有限，建议先看 Java 基础、集合、并发和 JVM 的面试题总结，快速建立高频问题清单；如果你想系统补基础，可以按下面的专题顺序阅读。

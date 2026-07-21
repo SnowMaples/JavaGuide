@@ -8,8 +8,6 @@ head:
       content: AI编程,CLI,IDE,Claude Code,Cursor,Kiro,TRAE,AI工具对比,AI编程选型
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 说实话，这个话题我酝酿很久了。很早就想聊聊，但一直拖着没有抽出时间写（其实就是懒！）。
 
 每次在群里聊 AI Coding 或者公众号分享 AI Coding 技巧，总有人问：“Claude Code 那个黑窗口到底好在哪？我 Cursor 用得好好的为什么要换？” 然后另一边马上有人回：“都 2026 年了还在用 IDE？CLI 才是正道。”

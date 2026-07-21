@@ -22,17 +22,9 @@ icon: "mdi:information-outline"
 
 加油！奥利给！
 
-## 官方知识星球
-
-对于准备面试的同学来说，强烈推荐我创建的一个纯粹的[Java 面试知识星球](../about-the-author/zhishixingqiu-two-years.md)，干货非常多，学习氛围也很不错！
-
-下面是星球提供的部分服务（点击下方图片即可获取知识星球的详细介绍）：
-
-[![星球服务](https://oss.javaguide.cn/xingqiu/xingqiufuwu.png)](../about-the-author/zhishixingqiu-two-years.md)
-
 ## 项目说明
 
-- [在线阅读网站](https://javaguide.cn)基于 Vuepress 搭建，使用的是主题是 [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)（很 Nice 的一个主题）。
+- [在线阅读网站](/)基于 Vuepress 搭建，使用的是主题是 [vuepress-theme-hope](https://github.com/vuepress-theme-hope/vuepress-theme-hope)（很 Nice 的一个主题）。
 - 项目的 Markdown 格式参考：[GitHub Markdown 格式](https://guides.github.com/features/mastering-markdown/)，表情素材来自：[EMOJI CHEAT SHEET](https://www.webpagefx.com/tools/emoji-cheat-sheet/)。
 - Logo 下的小图标是使用[Shields.IO](https://shields.io/) 生成的。
 

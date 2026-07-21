@@ -7,6 +7,8 @@ const withDefaultHeight = (
   Object.fromEntries(paths.map((path) => [path, height]));
 
 export const unlockConfig = {
+  // 本地开发时关闭阅读限制，生产构建保持启用
+  enabled: !import.meta.env.DEV,
   // 版本号变更可强制用户重新验证
   unlockVersion: "v1",
   // 调试用：设为 true 时无视本地已解锁状态，始终触发限制

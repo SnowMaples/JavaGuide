@@ -322,7 +322,7 @@ myStack.pop();//报错：java.lang.IllegalArgumentException: Stack is empty.
 1. 在每个元素入队时，优先队列会将新元素插入堆中并调整堆。
 2. 在队头出队时，优先队列会返回堆顶元素并调整堆。
 
-关于堆的具体实现可以看 [堆](https://javaguide.cn/cs-basics/data-structure/heap.html) 这一节。
+关于堆的具体实现可以看 [堆](/cs-basics/data-structure/heap.html) 这一节。
 
 不论进行什么操作，优先队列都能按照**某种排序方式**进行一系列堆的相关操作，从而保证整个集合的**有序性**。
 

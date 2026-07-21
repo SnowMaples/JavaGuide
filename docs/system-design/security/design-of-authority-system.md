@@ -10,8 +10,6 @@ head:
       content: 权限系统设计,RBAC,ABAC,用户角色权限,资源权限,权限模型,权限校验,授权系统
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 > 作者：转转技术团队
 >
 > 原文：<https://mp.weixin.qq.com/s/ONMuELjdHYa0yQceTj01Iw>

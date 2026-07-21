@@ -8,8 +8,6 @@ head:
       content: AI语音,ASR,TTS,VAD,实时语音Agent,Speech to Speech,语音识别,语音合成,端云混合,Realtime API
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 大家好，我是小 G。
 
 很多开发者第一次做 AI 语音应用时，脑子里通常是这条链路：用户说话，转成文字，丢给大模型，再把回答播出来。

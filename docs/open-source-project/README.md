@@ -11,8 +11,6 @@ head:
       content: Java开源项目,Java实战项目,Java项目推荐,Java技术教程,Java系统设计项目,Java工具库,开源项目推荐,后端项目,简历项目
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **Java 开源项目精选** 面向 Java 后端学习、项目实战和工具选型，整理 GitHub 和 Gitee 上优质的 Java 开源项目、教程资料、工具库和开发工具。
 
 内容来自开源项目 [CodingDocs/awesome-java](https://github.com/CodingDocs/awesome-java)，可以看作是 [awesome-java](https://github.com/akullpp/awesome-java) 的中文本土版本，项目类型更全面，也加入了更多中文开源项目。欢迎在项目 [issues 区](https://github.com/CodingDocs/awesome-java/issues) 推荐你认可的 Java 开源项目。
@@ -67,6 +65,5 @@ head:
 - [分布式系统知识体系](../distributed-system/)
 - [高性能系统知识体系](../high-performance/)
 - [技术书籍精选](../books/)
-- [星球专属优质专栏](../zhuanlan/)
 
 <!-- @include: @article-footer.snippet.md -->

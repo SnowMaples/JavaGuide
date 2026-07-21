@@ -23,8 +23,6 @@ head:
       content: 从大模型调用、Agent、RAG、MCP、Prompt 工程到评测和系统设计，梳理后端开发者进入 AI 应用开发需要补齐的关键知识。
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 做 AI 应用不是把 Prompt 塞进接口就结束了。真到项目里，马上会遇到上下文长度、结构化输出、RAG 召回、工具权限、评测回归、成本和稳定性这些问题。
 
 这些问题没法各解各的。大模型基础、Agent、RAG、工具调用、系统设计必须连起来理解——只懂调用 API，到了架构评审会卡住；只熟 RAG 论文，到了知识库维护还是不知道怎么处理增量更新和版本去重。
@@ -38,7 +36,7 @@ head:
 本专栏所属 AIGuide 项目，对标 JavaGuide 质量（免费开源，欢迎 Star 鼓励）：
 
 - **项目地址**：[https://github.com/Snailclimb/AIGuide](https://github.com/Snailclimb/AIGuide)
-- **在线阅读**：[https://javaguide.cn/ai-coding/](https://javaguide.cn/ai-coding/)
+- **在线阅读**：[/ai-coding/](/ai-coding/)
 
 发布之后，也是收到了很多读者朋友的好评和推荐。非常感谢，一定会持续用心维护！
 

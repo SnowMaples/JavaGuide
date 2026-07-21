@@ -10,8 +10,6 @@ head:
       content: JWT,JSON Web Token,Token认证,无状态,Header Payload Signature,签名算法,登录鉴权,CSRF
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 ## 什么是 JWT?
 
 JWT （JSON Web Token） 是目前最流行的跨域认证解决方案，是一种基于 Token 的认证授权机制。 从 JWT 的全称可以看出，JWT 本身也是 Token，一种规范化之后的 JSON 结构的 Token。

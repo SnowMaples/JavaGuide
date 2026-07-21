@@ -43,8 +43,8 @@ head:
 
 重点文章：
 
-- [CDN 工作原理详解](https://javaguide.cn/high-performance/cdn.html)
-- [负载均衡原理及算法详解](https://javaguide.cn/high-performance/load-balancing.html)
+- [CDN 工作原理详解](/high-performance/cdn.html)
+- [负载均衡原理及算法详解](/high-performance/load-balancing.html)
 
 高频面试问题：
 
@@ -62,10 +62,10 @@ head:
 
 重点文章：
 
-- [读写分离和分库分表详解](https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html)
-- [数据冷热分离详解](https://javaguide.cn/high-performance/data-cold-hot-separation.html)
-- [常见 SQL 优化手段总结](https://javaguide.cn/high-performance/sql-optimization.html)
-- [深度分页介绍及优化建议](https://javaguide.cn/high-performance/deep-pagination-optimization.html)
+- [读写分离和分库分表详解](/high-performance/read-and-write-separation-and-library-subtable.html)
+- [数据冷热分离详解](/high-performance/data-cold-hot-separation.html)
+- [常见 SQL 优化手段总结](/high-performance/sql-optimization.html)
+- [深度分页介绍及优化建议](/high-performance/deep-pagination-optimization.html)
 
 高频面试问题：
 
@@ -86,11 +86,11 @@ head:
 
 重点文章：
 
-- [消息队列基础常见问题总结](https://javaguide.cn/high-performance/message-queue/message-queue.html)
-- [Kafka 常见面试题总结](https://javaguide.cn/high-performance/message-queue/kafka-questions-01.html)
-- [RocketMQ 常见面试题总结](https://javaguide.cn/high-performance/message-queue/rocketmq-questions.html)
-- [RabbitMQ 常见面试题总结](https://javaguide.cn/high-performance/message-queue/rabbitmq-questions.html)
-- [Disruptor 常见面试题总结](https://javaguide.cn/high-performance/message-queue/disruptor-questions.html)
+- [消息队列基础常见问题总结](/high-performance/message-queue/message-queue.html)
+- [Kafka 常见面试题总结](/high-performance/message-queue/kafka-questions-01.html)
+- [RocketMQ 常见面试题总结](/high-performance/message-queue/rocketmq-questions.html)
+- [RabbitMQ 常见面试题总结](/high-performance/message-queue/rabbitmq-questions.html)
+- [Disruptor 常见面试题总结](/high-performance/message-queue/disruptor-questions.html)
 
 高频面试问题：
 
@@ -130,10 +130,10 @@ head:
 
 临近面试可以按“先数据层，再消息队列，最后入口层”的顺序复习。原因很简单：数据库优化和消息队列最容易被追问工程细节，入口层更适合放在最后补齐系统设计链路。
 
-1. 先看 [常见 SQL 优化手段总结](https://javaguide.cn/high-performance/sql-optimization.html) 和 [深度分页介绍及优化建议](https://javaguide.cn/high-performance/deep-pagination-optimization.html)，掌握慢 SQL 定位、索引优化和分页优化这些高频问题。
-2. 再看 [读写分离和分库分表详解](https://javaguide.cn/high-performance/read-and-write-separation-and-library-subtable.html)、[数据冷热分离详解](https://javaguide.cn/high-performance/data-cold-hot-separation.html)，重点理解数据量继续变大后，系统如何拆库、拆表、归档和迁移。
-3. 然后补 [消息队列基础常见问题总结](https://javaguide.cn/high-performance/message-queue/message-queue.html)、[Kafka 常见面试题总结](https://javaguide.cn/high-performance/message-queue/kafka-questions-01.html)、[RocketMQ 常见面试题总结](https://javaguide.cn/high-performance/message-queue/rocketmq-questions.html)，把异步、削峰、可靠投递、重复消费和消息积压准备扎实。
-4. 最后看 [CDN 工作原理详解](https://javaguide.cn/high-performance/cdn.html) 和 [负载均衡原理及算法详解](https://javaguide.cn/high-performance/load-balancing.html)，把入口层链路补齐，能够从用户访问一路讲到后端服务承接流量。
+1. 先看 [常见 SQL 优化手段总结](/high-performance/sql-optimization.html) 和 [深度分页介绍及优化建议](/high-performance/deep-pagination-optimization.html)，掌握慢 SQL 定位、索引优化和分页优化这些高频问题。
+2. 再看 [读写分离和分库分表详解](/high-performance/read-and-write-separation-and-library-subtable.html)、[数据冷热分离详解](/high-performance/data-cold-hot-separation.html)，重点理解数据量继续变大后，系统如何拆库、拆表、归档和迁移。
+3. 然后补 [消息队列基础常见问题总结](/high-performance/message-queue/message-queue.html)、[Kafka 常见面试题总结](/high-performance/message-queue/kafka-questions-01.html)、[RocketMQ 常见面试题总结](/high-performance/message-queue/rocketmq-questions.html)，把异步、削峰、可靠投递、重复消费和消息积压准备扎实。
+4. 最后看 [CDN 工作原理详解](/high-performance/cdn.html) 和 [负载均衡原理及算法详解](/high-performance/load-balancing.html)，把入口层链路补齐，能够从用户访问一路讲到后端服务承接流量。
 
 如果你能把这些内容串成一条完整链路：**入口流量如何进来、应用如何削峰、数据库如何减压、消息系统如何兜底、系统效果如何验证**，高性能系统设计题就会好答很多。
 

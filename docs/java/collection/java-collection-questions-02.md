@@ -10,8 +10,6 @@ head:
       content: HashMap,ConcurrentHashMap,Hashtable,红黑树,哈希冲突,线程安全,集合面试题
 ---
 
-<!-- @include: @article-header.snippet.md -->
-
 ## Map（重要）
 
 ### ⭐️ HashMap 和 Hashtable 的区别
@@ -105,7 +103,6 @@ public class Person {
     public Integer getAge() {
         return age;
     }
-
 
     public static void main(String[] args) {
         TreeMap<Person, String> treeMap = new TreeMap<>(new Comparator<Person>() {
@@ -538,7 +535,7 @@ Java 8 中，锁粒度更细，`synchronized` 只锁定当前链表或红黑二�
 
 这也就是二义性的由来。
 
-具体可以参考 [ConcurrentHashMap 源码分析](https://javaguide.cn/java/collection/concurrent-hash-map-source-code.html)。
+具体可以参考 [ConcurrentHashMap 源码分析](/java/collection/concurrent-hash-map-source-code.html)。
 
 多线程环境下，存在一个线程操作该 `ConcurrentHashMap` 时，其他的线程将该 `ConcurrentHashMap` 修改的情况，所以无法通过 `containsKey(key)` 来判断否存在这个键值对，也就没办法解决二义性问题了。
 

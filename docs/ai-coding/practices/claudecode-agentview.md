@@ -283,7 +283,7 @@ Agent View 目前还是 **research preview**，不能把它理解成完全成熟
 
 如果你要做多 Agent 协作，要么自己协调，要么使用 Agent Teams 这类专门的跨会话通信能力。否则很容易出现重复修改、结论不一致、同一文件被多边改动的问题。
 
-想深入了解上下文管理的工程方法论，可以看 [《上下文工程实战指南》](https://javaguide.cn/ai/agent/context-engineering.html) 和 [《Harness Engineering》](https://javaguide.cn/ai/agent/harness-engineering.html)。
+想深入了解上下文管理的工程方法论，可以看 [《上下文工程实战指南》](/ai/agent/context-engineering.html) 和 [《Harness Engineering》](/ai/agent/harness-engineering.html)。
 
 第三，**`/loop` 和 Agent View 搭配起来更顺**。
 
@@ -293,7 +293,7 @@ Agent View 目前还是 **research preview**，不能把它理解成完全成熟
 
 比如你让它持续修测试，失败就继续分析，再失败再继续。你不需要一直盯着，只需要偶尔看一下状态是否变黄、是否失败。
 
-更多关于 `/loop` 的配置方法（CronCreate/CronList/CronDelete、7 天自动过期等），可以看 [《Claude Code 核心命令详解》](https://javaguide.cn/ai-coding/claudecode-commands.html) 中关于 `/loop` 的部分。关于 Workflow、Graph 和 Loop 三者的技术原理，可以看 [《AI 工作流中的 Workflow、Graph 与 Loop》](https://javaguide.cn/ai/agent/workflow-graph-loop.html)。
+更多关于 `/loop` 的配置方法（CronCreate/CronList/CronDelete、7 天自动过期等），可以看 [《Claude Code 核心命令详解》](https://javaguide.cn/ai-coding/claudecode-commands.html) 中关于 `/loop` 的部分。关于 Workflow、Graph 和 Loop 三者的技术原理，可以看 [《AI 工作流中的 Workflow、Graph 与 Loop》](/ai/agent/workflow-graph-loop.html)。
 
 第四，如果你不想用它，也可以关掉。
 

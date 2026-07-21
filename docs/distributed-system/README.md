@@ -15,8 +15,6 @@ head:
       content: 分布式系统,分布式系统入门,分布式系统面试题,中心化,去中心化,CAP,BASE,拜占庭将军问题,Paxos,Raft,ZAB,Gossip,RPC,Dubbo,API网关,分布式ID,分布式锁,分布式事务,配置中心,ZooKeeper,后端面试
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **分布式系统知识体系** 面向后端学习、系统设计和面试复习，按“分布式入门 -> 通信调用 -> 服务治理 -> 一致性与协调 -> 工程实践”的顺序整理本站分布式相关文章。
 
 如果你刚开始学分布式，建议先看 [分布式系统入门](./distributed-system-intro.md)，建立整体认知；如果你时间有限，建议先看 [分布式系统面试题总结](./distributed-system-interview-questions.md)，快速建立高频问题清单；如果你想系统补基础，可以按下面的专题顺序阅读。

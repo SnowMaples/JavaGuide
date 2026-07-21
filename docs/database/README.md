@@ -15,8 +15,6 @@ head:
       content: 数据库,数据库面试题,SQL,MySQL,Redis,MongoDB,Elasticsearch,MySQL索引,MySQL事务,MySQL日志,MVCC,Redis缓存,Redis持久化,Redis集群,后端面试
 ---
 
-<!-- @include: @small-advertisement.snippet.md -->
-
 这份 **数据库知识体系** 面向后端学习、工程实践和面试复习，按“数据库基础 -> SQL -> MySQL -> Redis -> NoSQL 与搜索”的顺序整理本站数据库相关文章。
 
 如果你时间有限，建议先看 [数据库基础常见面试题总结](./basis.md)、[SQL 语法基础知识总结](./sql/sql-syntax-summary.md)、[MySQL 常见面试题总结](./mysql/mysql-questions-01.md) 和 [Redis 常见面试题总结（上）](./redis/redis-questions-01.md)，快速建立高频问题清单。
