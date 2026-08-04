@@ -20,23 +20,23 @@ head:
 
 高性能基础：
 
-- [CDN 工作原理详解](/high-performance/cdn.html)
-- [负载均衡原理及算法详解](/high-performance/load-balancing.html)
+- [CDN 工作原理详解](./cdn.md)
+- [负载均衡原理及算法详解](./load-balancing.md)
 
 数据库性能优化：
 
-- [读写分离和分库分表详解](/high-performance/read-and-write-separation-and-library-subtable.html)
-- [数据冷热分离详解](/high-performance/data-cold-hot-separation.html)
-- [常见 SQL 优化手段总结](/high-performance/sql-optimization.html)
-- [深度分页介绍及优化建议](/high-performance/deep-pagination-optimization.html)
+- [读写分离和分库分表详解](./read-and-write-separation-and-library-subtable.md)
+- [数据冷热分离详解](./data-cold-hot-separation.md)
+- [常见 SQL 优化手段总结](./sql-optimization.md)
+- [深度分页介绍及优化建议](./deep-pagination-optimization.md)
 
 消息队列：
 
-- [消息队列基础常见问题总结](/high-performance/message-queue/message-queue.html)
-- [Kafka 常见面试题总结](/high-performance/message-queue/kafka-questions-01.html)
-- [RocketMQ 常见面试题总结](/high-performance/message-queue/rocketmq-questions.html)
-- [RabbitMQ 常见面试题总结](/high-performance/message-queue/rabbitmq-questions.html)
-- [Disruptor 常见面试题总结](/high-performance/message-queue/disruptor-questions.html)
+- [消息队列基础常见问题总结](./message-queue/message-queue.md)
+- [Kafka 常见面试题总结](./message-queue/kafka-questions-01.md)
+- [RocketMQ 常见面试题总结](./message-queue/rocketmq-questions.md)
+- [RabbitMQ 常见面试题总结](./message-queue/rabbitmq-questions.md)
+- [Disruptor 常见面试题总结](./message-queue/disruptor-questions.md)
 
 ## 回答高性能问题的通用思路
 

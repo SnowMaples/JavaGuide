@@ -192,7 +192,7 @@ Bean Validation 主要解决的是**数据格式、语法层面**的校验。但
 
 ![RBAC 权限模型示意图](https://oss.javaguide.cn/github/javaguide/system-design/security/design-of-authority-system/rbac.png)
 
-关于权限系统设计的详细介绍，可以看这篇文章：[权限系统设计详解](/system-design/security/design-of-authority-system.html)。
+关于权限系统设计的详细介绍，可以看这篇文章：[权限系统设计详解](./design-of-authority-system.md)。
 
 ## 总结
 

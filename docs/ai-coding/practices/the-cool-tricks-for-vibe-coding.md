@@ -175,7 +175,7 @@ git worktree add ../project-refactor-user -b feat/refactor-user
 
 Skill 更适合放遇到某类任务时应该怎么做。比如做代码审查、写测试、改前端页面、网页调研、写技术文章，这些任务每次流程都差不多，就没必要每次都在聊天里重新提醒一遍。
 
-小 G 之前写过两篇相关的文章：[Agent Skills 是什么？和 Prompt、MCP 到底差在哪？](/ai/agent/skills.html) 和 [AI 编程必备 Skills 推荐](https://javaguide.cn/ai-coding/programmer-essential-skills.html)。
+小 G 之前写过两篇相关的文章：[Agent Skills 是什么？和 Prompt、MCP 到底差在哪？](../../ai/agent/skills.md) 和 [AI 编程必备 Skills 推荐](https://javaguide.cn/ai-coding/programmer-essential-skills.html)。
 
 简单说，Skill 就是一份能被 Agent 按需加载的任务说明。它不是插件，也不是 MCP 工具本身，而是把某类任务的流程、约束、检查项和踩坑经验写进 `SKILL.md`。。
 
@@ -275,7 +275,7 @@ pnpm lint
 
 ## 上下文别越堆越乱
 
-小 G 之前写过一篇 [Context Engineering](/ai/agent/context-engineering.html)，里面有个观点放到 Vibe Coding 里也很适用：**上下文窗口大不等于效果好——窗口能装更多东西，但模型能不能稳定找到重点，是另一回事。**
+小 G 之前写过一篇 [Context Engineering](../../ai/agent/context-engineering.md)，里面有个观点放到 Vibe Coding 里也很适用：**上下文窗口大不等于效果好——窗口能装更多东西，但模型能不能稳定找到重点，是另一回事。**
 
 ![上下文为什么会失效](https://oss.javaguide.cn/github/javaguide/ai/context-engineering/why-does-the-following-content-fail.png)
 
@@ -356,7 +356,7 @@ git commit -m "[test] add order export tests"
 git commit -m "[review] fix tenant permission check"
 ```
 
-等流程跑顺以后，也比较熟练之后，再考虑 **worktree 并行、[Agent View](/ai-coding/practices/claudecode-agentview.html)** 这类玩法。
+等流程跑顺以后，也比较熟练之后，再考虑 **worktree 并行、[Agent View](./claudecode-agentview.md)** 这类玩法。
 
 ![多 Agent 并行会话](https://oss.javaguide.cn/github/javaguide/ai/coding/claudecode/multi-agent-parallel-sessions.png)
 

@@ -770,7 +770,7 @@ DROP VIEW top_10_user_view;
 
 大多数情况下，索引查询都是比全表扫描要快的。但是如果数据库的数据量不大，那么使用索引也不一定能够带来很大提升。
 
-关于索引的详细介绍，请看我写的 [MySQL 索引详解](/database/mysql/mysql-index.html) 这篇文章。
+关于索引的详细介绍，请看我写的 [MySQL 索引详解](../mysql/mysql-index.md) 这篇文章。
 
 #### 创建索引
 

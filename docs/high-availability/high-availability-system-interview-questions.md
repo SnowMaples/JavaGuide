@@ -16,19 +16,19 @@ head:
 
 高可用设计：
 
-- [高可用系统设计指南](/high-availability/high-availability-system-design.html)
-- [冗余设计详解](/high-availability/redundancy.html)
-- [性能测试入门](/high-availability/performance-test.html)
+- [高可用系统设计指南](./high-availability-system-design.md)
+- [冗余设计详解](./redundancy.md)
+- [性能测试入门](./performance-test.md)
 
 限流、降级、熔断：
 
-- [服务限流详解](/high-availability/limit-request.html)
-- [降级&熔断详解](/high-availability/fallback-and-circuit-breaker.html)
+- [服务限流详解](./limit-request.md)
+- [降级&熔断详解](./fallback-and-circuit-breaker.md)
 
 超时、重试、幂等：
 
-- [超时&重试详解](/high-availability/timeout-and-retry.html)
-- [接口幂等方案总结](/high-availability/idempotency.html)
+- [超时&重试详解](./timeout-and-retry.md)
+- [接口幂等方案总结](./idempotency.md)
 
 ## 高可用基础
 

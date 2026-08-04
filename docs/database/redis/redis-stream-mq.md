@@ -206,12 +206,12 @@ sequenceDiagram
 
 更多 Redis 高频知识点和面试题总结，可以阅读笔者写的这几篇文章：
 
-- [Redis 常见面试题总结（上）](/database/redis/redis-questions-01.html "Redis 常见面试题总结（上）")（Redis 基础、应用、数据类型、持久化机制、线程模型等）
-- [Redis 常见面试题总结(下)](/database/redis/redis-questions-02.html "Redis 常见面试题总结(下)")（Redis 事务、性能优化、生产问题、集群、使用规范等）
-- [如何基于Redis实现延时任务](/database/redis/redis-delayed-task.html "如何基于Redis实现延时任务")
-- [Redis 5 种基本数据类型详解](/database/redis/redis-data-structures-01.html "Redis 5 种基本数据类型详解")
-- [Redis 3 种特殊数据类型详解](/database/redis/redis-data-structures-02.html "Redis 3 种特殊数据类型详解")
-- [Redis为什么用跳表实现有序集合](/database/redis/redis-skiplist.html "Redis为什么用跳表实现有序集合")
-- [Redis 持久化机制详解](/database/redis/redis-persistence.html "Redis 持久化机制详解")
-- [Redis 内存碎片详解](/database/redis/redis-memory-fragmentation.html "Redis 内存碎片详解")
-- [Redis 常见阻塞原因总结](/database/redis/redis-common-blocking-problems-summary.html "Redis 常见阻塞原因总结")
+- [Redis 常见面试题总结（上）](./redis-questions-01.md "Redis 常见面试题总结（上）")（Redis 基础、应用、数据类型、持久化机制、线程模型等）
+- [Redis 常见面试题总结(下)](./redis-questions-02.md "Redis 常见面试题总结(下)")（Redis 事务、性能优化、生产问题、集群、使用规范等）
+- [如何基于Redis实现延时任务](./redis-delayed-task.md "如何基于Redis实现延时任务")
+- [Redis 5 种基本数据类型详解](./redis-data-structures-01.md "Redis 5 种基本数据类型详解")
+- [Redis 3 种特殊数据类型详解](./redis-data-structures-02.md "Redis 3 种特殊数据类型详解")
+- [Redis为什么用跳表实现有序集合](./redis-skiplist.md "Redis为什么用跳表实现有序集合")
+- [Redis 持久化机制详解](./redis-persistence.md "Redis 持久化机制详解")
+- [Redis 内存碎片详解](./redis-memory-fragmentation.md "Redis 内存碎片详解")
+- [Redis 常见阻塞原因总结](./redis-common-blocking-problems-summary.md "Redis 常见阻塞原因总结")

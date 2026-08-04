@@ -44,13 +44,13 @@ head:
 
 在系统刷八股前，先把「怎么准备、怎么写简历、怎么稳住心态」搞定，避免方向跑偏。
 
-| 事项       | 说明                                    | 对应文章                                                                                                                                                                                         |
-| ---------- | --------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| 准备方法   | 明确复习节奏、自测方式、时间分配        | [如何高效准备 Java 面试？](/interview-preparation/teach-you-how-to-prepare-for-the-interview-hand-in-hand.html)<br />[Java后端面试重点总结](/interview-preparation/key-points-of-interview.html) |
-| 简历       | 一到两页纸、项目 STAR、技术栈与岗位匹配 | [程序员简历编写指南](/interview-preparation/resume-guide.html)                                                                                                                                   |
-| 学习路线   | 查漏补缺，确定自己当前所处阶段          | [Java 学习路线（最新版，4w+ 字）](/interview-preparation/java-roadmap.html)                                                                                                                      |
-| 项目与经历 | 没有项目/实习时如何包装、怎么讲         | [项目经验指南](/interview-preparation/project-experience-guide.html)<br />[校招没有实习经历怎么办？实习经历怎么写？](/interview-preparation/internship-experience.html)                          |
-| 心态       | 减少紧张、发挥更稳                      | [面试太紧张怎么办？](/interview-preparation/how-to-handle-interview-nerves.html)                                                                                                                 |
+| 事项       | 说明                                    | 对应文章                                                                                                                                           |
+| ---------- | --------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 准备方法   | 明确复习节奏、自测方式、时间分配        | [如何高效准备 Java 面试？](./teach-you-how-to-prepare-for-the-interview-hand-in-hand.md)<br />[Java后端面试重点总结](./key-points-of-interview.md) |
+| 简历       | 一到两页纸、项目 STAR、技术栈与岗位匹配 | [程序员简历编写指南](./resume-guide.md)                                                                                                            |
+| 学习路线   | 查漏补缺，确定自己当前所处阶段          | [Java 学习路线（最新版，4w+ 字）](./java-roadmap.md)                                                                                               |
+| 项目与经历 | 没有项目/实习时如何包装、怎么讲         | [项目经验指南](./project-experience-guide.md)<br />[校招没有实习经历怎么办？实习经历怎么写？](./internship-experience.md)                          |
+| 心态       | 减少紧张、发挥更稳                      | [面试太紧张怎么办？](./how-to-handle-interview-nerves.md)                                                                                          |
 
 **核心要点**：
 
@@ -77,7 +77,7 @@ head:
 
 **没有项目经验怎么办？**
 
-2. **实战类开源项目**：JavaGuide 推荐的[优质开源实战项目](/open-source-project/practical-project.html)；在理解基础上改进或增加功能。
+2. **实战类开源项目**：JavaGuide 推荐的[优质开源实战项目](../open-source-project/practical-project.md)；在理解基础上改进或增加功能。
 3. **参加大公司组织的比赛**：阿里云天池大赛等；获奖项目含金量高。
 
 **项目经历写作要点（STAR 法则）**：
@@ -102,30 +102,30 @@ head:
 
 **Java 基础**
 
-- [Java 基础常见面试题总结（上）](/java/basis/java-basic-questions-01.html)、[（中）](/java/basis/java-basic-questions-02.html)、[（下）](/java/basis/java-basic-questions-03.html)：语法与面向对象、字符串与拷贝、异常/泛型/反射/SPI/序列化/注解
+- [Java 基础常见面试题总结（上）](../java/basis/java-basic-questions-01.md)、[（中）](../java/basis/java-basic-questions-02.md)、[（下）](../java/basis/java-basic-questions-03.md)：语法与面向对象、字符串与拷贝、异常/泛型/反射/SPI/序列化/注解
 
 **Java 集合**
 
-- [Java 集合常见面试题（上）](/java/collection/java-collection-questions-01.html)、[（下）](/java/collection/java-collection-questions-02.html)：List/Set/Queue、HashMap、ConcurrentHashMap
+- [Java 集合常见面试题（上）](../java/collection/java-collection-questions-01.md)、[（下）](../java/collection/java-collection-questions-02.md)：List/Set/Queue、HashMap、ConcurrentHashMap
 
 **Java 并发**（大厂必深挖）
 
-- [Java 并发常见面试题（上）](/java/concurrent/java-concurrent-questions-01.html)、[（中）](/java/concurrent/java-concurrent-questions-02.html)、[（下）](/java/concurrent/java-concurrent-questions-03.html)：线程与锁、synchronized/ReentrantLock、ThreadLocal/线程池/Future/AQS/虚拟线程
-- [JMM](/java/concurrent/jmm.html)、[线程池详解](/java/concurrent/java-thread-pool-summary.html)与[最佳实践](/java/concurrent/java-thread-pool-best-practices.html)
-- [ThreadLocal](/java/concurrent/threadlocal.html)、[AQS](/java/concurrent/aqs.html)、[CompletableFuture](/java/concurrent/completablefuture-intro.html)、[常见并发容器](/java/concurrent/java-concurrent-collections.html)
+- [Java 并发常见面试题（上）](../java/concurrent/java-concurrent-questions-01.md)、[（中）](../java/concurrent/java-concurrent-questions-02.md)、[（下）](../java/concurrent/java-concurrent-questions-03.md)：线程与锁、synchronized/ReentrantLock、ThreadLocal/线程池/Future/AQS/虚拟线程
+- [JMM](../java/concurrent/jmm.md)、[线程池详解](../java/concurrent/java-thread-pool-summary.md)与[最佳实践](../java/concurrent/java-thread-pool-best-practices.md)
+- [ThreadLocal](../java/concurrent/threadlocal.md)、[AQS](../java/concurrent/aqs.md)、[CompletableFuture](../java/concurrent/completablefuture-intro.md)、[常见并发容器](../java/concurrent/java-concurrent-collections.md)
 
 **MySQL**（必看）
 
-- [MySQL 常见面试题总结](/database/mysql/mysql-questions-01.html)（基础、引擎、事务、索引、锁、优化）
-- [MySQL 索引详解](/database/mysql/mysql-index.html)、[三大日志](/database/mysql/mysql-logs.html)、[事务隔离级别](/database/mysql/transaction-isolation-level.html)
-- [InnoDB 对 MVCC 的实现](/database/mysql/innodb-implementation-of-mvcc.html)、[SQL 执行过程](/database/mysql/how-sql-executed-in-mysql.html)
+- [MySQL 常见面试题总结](../database/mysql/mysql-questions-01.md)（基础、引擎、事务、索引、锁、优化）
+- [MySQL 索引详解](../database/mysql/mysql-index.md)、[三大日志](../database/mysql/mysql-logs.md)、[事务隔离级别](../database/mysql/transaction-isolation-level.md)
+- [InnoDB 对 MVCC 的实现](../database/mysql/innodb-implementation-of-mvcc.md)、[SQL 执行过程](../database/mysql/how-sql-executed-in-mysql.md)
 
 **Redis**（必看）
 
-- [Redis 常见面试题总结（上）](/database/redis/redis-questions-01.html)、[Redis 常见面试题总结（下）](/database/redis/redis-questions-02.html)
-- [Redis 延时任务](/database/redis/redis-delayed-task.html)、[Redis 做消息队列](/database/redis/redis-stream-mq.html)
-- [5 种基本数据类型](/database/redis/redis-data-structures-01.html)、[3 种特殊类型](/database/redis/redis-data-structures-02.html)、[跳表实现有序集合](/database/redis/redis-skiplist.html)
-- [持久化](/database/redis/redis-persistence.html)、[内存碎片](/database/redis/redis-memory-fragmentation.html)、[常见阻塞原因](/database/redis/redis-common-blocking-problems-summary.html)
+- [Redis 常见面试题总结（上）](../database/redis/redis-questions-01.md)、[Redis 常见面试题总结（下）](../database/redis/redis-questions-02.md)
+- [Redis 延时任务](../database/redis/redis-delayed-task.md)、[Redis 做消息队列](../database/redis/redis-stream-mq.md)
+- [5 种基本数据类型](../database/redis/redis-data-structures-01.md)、[3 种特殊类型](../database/redis/redis-data-structures-02.md)、[跳表实现有序集合](../database/redis/redis-skiplist.md)
+- [持久化](../database/redis/redis-persistence.md)、[内存碎片](../database/redis/redis-memory-fragmentation.md)、[常见阻塞原因](../database/redis/redis-common-blocking-problems-summary.md)
 
 **自测**：随机抽题，能用自己的话讲出来，不死记硬背，理解记忆，重点记关键词。尤其是要重点测试 MySQL 和 Redis 部分，面试考察重点中的重点。
 
@@ -141,22 +141,22 @@ head:
 
 **Spring / Spring Boot**
 
-- [Spring 常见面试题](/system-design/framework/spring/spring-knowledge-and-questions-summary.html)、[SpringBoot 常见面试题](/system-design/framework/spring/springboot-knowledge-and-questions-summary.html)
-- [常用注解](/system-design/framework/spring/spring-common-annotations.html)、[IoC 与 AOP](/system-design/framework/spring/ioc-and-aop.html)、[Spring 事务](/system-design/framework/spring/spring-transaction.html)
-- [Spring 中的设计模式](/system-design/framework/spring/spring-design-patterns-summary.html)、[SpringBoot 自动装配](/system-design/framework/spring/spring-boot-auto-assembly-principles.html)、[Async 原理](/system-design/framework/spring/async.html)（原理性知识，时间不够可跳过）
-- [MyBatis 常见面试题](/system-design/framework/mybatis/mybatis-interview.html)（不重要，可跳过，考查不多）、[Netty 常见面试题](/system-design/framework/netty.html)（用到才需要准备）
+- [Spring 常见面试题](../system-design/framework/spring/spring-knowledge-and-questions-summary.md)、[SpringBoot 常见面试题](../system-design/framework/spring/springboot-knowledge-and-questions-summary.md)
+- [常用注解](../system-design/framework/spring/spring-common-annotations.md)、[IoC 与 AOP](../system-design/framework/spring/ioc-and-aop.md)、[Spring 事务](../system-design/framework/spring/spring-transaction.md)
+- [Spring 中的设计模式](../system-design/framework/spring/spring-design-patterns-summary.md)、[SpringBoot 自动装配](../system-design/framework/spring/spring-boot-auto-assembly-principles.md)、[Async 原理](../system-design/framework/spring/async.md)（原理性知识，时间不够可跳过）
+- [MyBatis 常见面试题](../system-design/framework/mybatis/mybatis-interview.md)（不重要，可跳过，考查不多）、[Netty 常见面试题](../system-design/framework/netty.md)（用到才需要准备）
 
 **自测**：能说清项目里用到的 Spring 注解、IoC/AOP 在项目中的体现、事务失效场景。
 
 **权限与安全**
 
-- [认证授权基础](/system-design/security/basis-of-authority-certification.html)、[JWT](/system-design/security/jwt-intro.html) 与[优缺点](/system-design/security/advantages-and-disadvantages-of-jwt.html)、[权限系统设计](/system-design/security/design-of-authority-system.html)、[SSO](/system-design/security/sso-intro.html)、[常见加密算法](/system-design/security/encryption-algorithms.html)
+- [认证授权基础](../system-design/security/basis-of-authority-certification.md)、[JWT](../system-design/security/jwt-intro.md) 与[优缺点](../system-design/security/advantages-and-disadvantages-of-jwt.md)、[权限系统设计](../system-design/security/design-of-authority-system.md)、[SSO](../system-design/security/sso-intro.md)、[常见加密算法](../system-design/security/encryption-algorithms.md)
 
 #### 系统设计与场景题
 
 面试官常会穿插一两道系统设计或场景题，考察整体思路和方案权衡。
 
-- **本站可参考的设计类文章**（思路可迁移到面试口述）：[定时任务](/system-design/schedule-task.html)、[Web 实时消息推送](/system-design/web-real-time-message-push.html)。
+- **本站可参考的设计类文章**（思路可迁移到面试口述）：[定时任务](../system-design/schedule-task.md)、[Web 实时消息推送](../system-design/web-real-time-message-push.md)。
 
 **自测**：能口述 1～2 个经典系统设计（如短链、秒杀、限流）的整体思路与关键取舍；场景题（如海量数据去重、第三方登录）能说出常见方案。
 
@@ -164,10 +164,10 @@ head:
 
 **目标字节、腾讯等重算法/基础的厂**：适当多留时间，算法与代码题要单独刷（LeetCode 热题、剑指 Offer 等等）；**目标中小厂**：可压缩或后置。
 
-- **算法与代码题**（面字节、快手等必留时间）：先过 [算法专题](/cs-basics/algorithms/) 建立路线，再重点手写 [二分查找](/cs-basics/algorithms/binary-search.html)、[双指针与滑动窗口](/cs-basics/algorithms/two-pointers-and-sliding-window.html)、[DFS/BFS](/cs-basics/algorithms/dfs-bfs.html)、[回溯](/cs-basics/algorithms/backtracking.html)、[动态规划](/cs-basics/algorithms/dynamic-programming.html)、[Top K](/cs-basics/algorithms/top-k.html) 这些模板；配合 [剑指 Offer 题解](/cs-basics/algorithms/the-sword-refers-to-offer.html)、LeetCode 热题 100 和常见手写（如 LRU、生产者消费者、单例等）。建议每天至少 1 道，保持手感。
-- **网络**：[计网常见面试题（上）](/cs-basics/network/other-network-questions.html)、[（下）](/cs-basics/network/other-network-questions2.html)、[访问网页全过程](/cs-basics/network/the-whole-process-of-accessing-web-pages.html)、[应用层常见协议](/cs-basics/network/application-layer-protocol.html)、[HTTP/HTTPS](/cs-basics/network/http-vs-https.html)、[HTTP 1.0 vs 1.1](/cs-basics/network/http1.0-vs-http1.1.html)、[DNS](/cs-basics/network/dns.html)、[TCP 三次握手与四次挥手](/cs-basics/network/tcp-connection-and-disconnection.html)、[TCP 可靠性](/cs-basics/network/tcp-reliability-guarantee.html)、[ARP](/cs-basics/network/arp.html)
-- **操作系统**：[操作系统常见面试题（上）](/cs-basics/operating-system/operating-system-basic-questions-01.html)、[（下）](/cs-basics/operating-system/operating-system-basic-questions-02.html)、[Linux 基础](/cs-basics/operating-system/linux-intro.html)
-- **数据结构**：先过 [数据结构专题](/cs-basics/data-structure/)，再重点复盘 [数组/链表/栈/队列](/cs-basics/data-structure/linear-data-structure.html)、[哈希表](/cs-basics/data-structure/hash-table.html)、[树](/cs-basics/data-structure/tree.html)、[图](/cs-basics/data-structure/graph.html)、[堆](/cs-basics/data-structure/heap.html)、[Trie](/cs-basics/data-structure/trie.html)、[并查集](/cs-basics/data-structure/union-find.html)、[跳表](/cs-basics/data-structure/skip-list.html)、[红黑树](/cs-basics/data-structure/red-black-tree.html)、[布隆过滤器](/cs-basics/data-structure/bloom-filter.html)、[LRU](/cs-basics/data-structure/lru-cache.html)。
+- **算法与代码题**（面字节、快手等必留时间）：先过 [算法专题](/cs-basics/algorithms/) 建立路线，再重点手写 [二分查找](../cs-basics/algorithms/binary-search.md)、[双指针与滑动窗口](../cs-basics/algorithms/two-pointers-and-sliding-window.md)、[DFS/BFS](../cs-basics/algorithms/dfs-bfs.md)、[回溯](../cs-basics/algorithms/backtracking.md)、[动态规划](../cs-basics/algorithms/dynamic-programming.md)、[Top K](../cs-basics/algorithms/top-k.md) 这些模板；配合 [剑指 Offer 题解](../cs-basics/algorithms/the-sword-refers-to-offer.md)、LeetCode 热题 100 和常见手写（如 LRU、生产者消费者、单例等）。建议每天至少 1 道，保持手感。
+- **网络**：[计网常见面试题（上）](../cs-basics/network/other-network-questions.md)、[（下）](../cs-basics/network/other-network-questions2.md)、[访问网页全过程](../cs-basics/network/the-whole-process-of-accessing-web-pages.md)、[应用层常见协议](../cs-basics/network/application-layer-protocol.md)、[HTTP/HTTPS](../cs-basics/network/http-vs-https.md)、[HTTP 1.0 vs 1.1](../cs-basics/network/http1.0-vs-http1.1.md)、[DNS](../cs-basics/network/dns.md)、[TCP 三次握手与四次挥手](../cs-basics/network/tcp-connection-and-disconnection.md)、[TCP 可靠性](../cs-basics/network/tcp-reliability-guarantee.md)、[ARP](../cs-basics/network/arp.md)
+- **操作系统**：[操作系统常见面试题（上）](../cs-basics/operating-system/operating-system-basic-questions-01.md)、[（下）](../cs-basics/operating-system/operating-system-basic-questions-02.md)、[Linux 基础](../cs-basics/operating-system/linux-intro.md)
+- **数据结构**：先过 [数据结构专题](/cs-basics/data-structure/)，再重点复盘 [数组/链表/栈/队列](../cs-basics/data-structure/linear-data-structure.md)、[哈希表](../cs-basics/data-structure/hash-table.md)、[树](../cs-basics/data-structure/tree.md)、[图](../cs-basics/data-structure/graph.md)、[堆](../cs-basics/data-structure/heap.md)、[Trie](../cs-basics/data-structure/trie.md)、[并查集](../cs-basics/data-structure/union-find.md)、[跳表](../cs-basics/data-structure/skip-list.md)、[红黑树](../cs-basics/data-structure/red-black-tree.md)、[布隆过滤器](../cs-basics/data-structure/bloom-filter.md)、[LRU](../cs-basics/data-structure/lru-cache.md)。
 
 算法与数据结构建议合并复习，不要只背概念或只刷题。时间紧时按 7 天路线走：复杂度和排序、数组/链表、二分/双指针/滑动窗口、树和图、回溯和动态规划、哈希/堆/Top K、错题复盘。时间充足时按 30 天路线走：先打牢线性结构和哈希表，再刷树图、回溯、动态规划、贪心、Top K，最后只复盘错题和边界样例。
 
@@ -177,12 +177,12 @@ head:
 
 若简历或岗位涉及分布式/微服务/高并发，再系统过一遍；否则可只过「项目会用到的点」。
 
-- **分布式理论**：[CAP 与 BASE](/distributed-system/protocol/cap-and-base-theorem.html)、[Paxos](/distributed-system/protocol/paxos-algorithm.html)、[Raft](/distributed-system/protocol/raft-algorithm.html)、[ZAB](/distributed-system/protocol/zab.html)、[Gossip](/distributed-system/protocol/gossip-protocol.html)、[一致性哈希](/distributed-system/protocol/consistent-hashing.html)
-- **RPC**：[RPC 基础](/distributed-system/rpc/rpc-intro.html)、[Dubbo](/distributed-system/rpc/dubbo.html)（目前问的很少，可跳过）
-- **分布式 ID / 网关 / 锁 / 事务**（项目涉及再重点看）：[分布式 ID](/distributed-system/distributed-id.html)、[设计指南](/distributed-system/distributed-id-design.html)、[API 网关](/distributed-system/api-gateway.html)、[Spring Cloud Gateway](/distributed-system/spring-cloud-gateway-questions.html)、[分布式锁](/distributed-system/distributed-lock-implementations.html)、[分布式事务](/distributed-system/distributed-transaction.html)
-- **高并发**（项目涉及再重点看）：[CDN](/high-performance/cdn.html)、[读写分离与分库分表](/high-performance/read-and-write-separation-and-library-subtable.html)、[冷热分离](/high-performance/data-cold-hot-separation.html)、[SQL 优化](/high-performance/sql-optimization.html)、[深度分页](/high-performance/deep-pagination-optimization.html)、[负载均衡](/high-performance/load-balancing.html)
-- **高可用**（项目涉及再重点看）：[高可用系统设计](/high-availability/high-availability-system-design.html)、[限流](/high-availability/limit-request.html)、[熔断与降级](/high-availability/fallback-and-circuit-breaker.html)、[超时与重试](/high-availability/timeout-and-retry.html)、[幂等设计](/high-availability/idempotency.html)、[冗余设计](/high-availability/redundancy.html)
-- **消息队列**（项目涉及再重点看）：[MQ 基础](/high-performance/message-queue/message-queue.html)、[Disruptor](/high-performance/message-queue/disruptor-questions.html)、[RabbitMQ](/high-performance/message-queue/rabbitmq-questions.html)、[RocketMQ](/high-performance/message-queue/rocketmq-questions.html)、[Kafka](/high-performance/message-queue/kafka-questions-01.html)
+- **分布式理论**：[CAP 与 BASE](../distributed-system/protocol/cap-and-base-theorem.md)、[Paxos](../distributed-system/protocol/paxos-algorithm.md)、[Raft](../distributed-system/protocol/raft-algorithm.md)、[ZAB](../distributed-system/protocol/zab.md)、[Gossip](../distributed-system/protocol/gossip-protocol.md)、[一致性哈希](../distributed-system/protocol/consistent-hashing.md)
+- **RPC**：[RPC 基础](../distributed-system/rpc/rpc-intro.md)、[Dubbo](../distributed-system/rpc/dubbo.md)（目前问的很少，可跳过）
+- **分布式 ID / 网关 / 锁 / 事务**（项目涉及再重点看）：[分布式 ID](../distributed-system/distributed-id.md)、[设计指南](../distributed-system/distributed-id-design.md)、[API 网关](../distributed-system/api-gateway.md)、[Spring Cloud Gateway](../distributed-system/spring-cloud-gateway-questions.md)、[分布式锁](../distributed-system/distributed-lock-implementations.md)、[分布式事务](../distributed-system/distributed-transaction.md)
+- **高并发**（项目涉及再重点看）：[CDN](../high-performance/cdn.md)、[读写分离与分库分表](../high-performance/read-and-write-separation-and-library-subtable.md)、[冷热分离](../high-performance/data-cold-hot-separation.md)、[SQL 优化](../high-performance/sql-optimization.md)、[深度分页](../high-performance/deep-pagination-optimization.md)、[负载均衡](../high-performance/load-balancing.md)
+- **高可用**（项目涉及再重点看）：[高可用系统设计](../high-availability/high-availability-system-design.md)、[限流](../high-availability/limit-request.md)、[熔断与降级](../high-availability/fallback-and-circuit-breaker.md)、[超时与重试](../high-availability/timeout-and-retry.md)、[幂等设计](../high-availability/idempotency.md)、[冗余设计](../high-availability/redundancy.md)
+- **消息队列**（项目涉及再重点看）：[MQ 基础](../high-performance/message-queue/message-queue.md)、[Disruptor](../high-performance/message-queue/disruptor-questions.md)、[RabbitMQ](../high-performance/message-queue/rabbitmq-questions.md)、[RocketMQ](../high-performance/message-queue/rocketmq-questions.md)、[Kafka](../high-performance/message-queue/kafka-questions-01.md)
 
 **自测**：能讲清项目里用到的分布式方案（如分布式锁、ID、MQ）及选型理由；CAP/BASE、一致性哈希等能举例说明。
 
@@ -190,22 +190,22 @@ head:
 
 目标阿里、美团、携程、顺丰、招银等可重点看；面国企或小厂可跳过。
 
-- [Java 内存区域](/java/jvm/memory-area.html)、[JVM 垃圾回收](/java/jvm/jvm-garbage-collection.html)
-- [类文件结构](/java/jvm/class-file-structure.html)、[类加载过程](/java/jvm/class-loading-process.html)、[类加载器](/java/jvm/classloader.html)
+- [Java 内存区域](../java/jvm/memory-area.md)、[JVM 垃圾回收](../java/jvm/jvm-garbage-collection.md)
+- [类文件结构](../java/jvm/class-file-structure.md)、[类加载过程](../java/jvm/class-loading-process.md)、[类加载器](../java/jvm/classloader.md)
 
 **自测**：能说清内存区域、常见 GC 器与回收过程、类加载与双亲委派；能结合项目或案例讲一次 GC 调优或 OOM 排查思路。
 
-**Java 新特性**（按岗位要求选读）：[Java 11](/java/new-features/java11.html)、[Java 17](/java/new-features/java17.html)、[Java 21](/java/new-features/java21.html)
+**Java 新特性**（按岗位要求选读）：[Java 11](../java/new-features/java11.md)、[Java 17](../java/new-features/java17.md)、[Java 21](../java/new-features/java21.md)
 
 ### 面试前 1～2 天冲刺清单
 
 临近面试时优先做这几件事，避免临时抱佛脚方向散乱：
 
-| 事项              | 说明                                                                                                                                |
-| ----------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
-| 过一遍必会题      | 重点看你第一阶段整理的「项目相关必会题」+ 简历上写的「熟练掌握」对应的考点，能口头复述要点即可。                                    |
-| 练一遍项目话术    | 每个项目 1 分钟版、3 分钟版各讲一遍，卡壳的地方记下来再顺一遍。                                                                     |
-| 目标公司/岗位倾向 | 翻一下该公司或同类型岗位的面经，看有没有偏重（如算法、计网、项目深挖），针对性过一眼。                                              |
-| 心态与状态        | 早睡、准备好设备（线上面试）或路线（现场），可看 [面试太紧张怎么办？](/interview-preparation/how-to-handle-interview-nerves.html)。 |
+| 事项              | 说明                                                                                                         |
+| ----------------- | ------------------------------------------------------------------------------------------------------------ |
+| 过一遍必会题      | 重点看你第一阶段整理的「项目相关必会题」+ 简历上写的「熟练掌握」对应的考点，能口头复述要点即可。             |
+| 练一遍项目话术    | 每个项目 1 分钟版、3 分钟版各讲一遍，卡壳的地方记下来再顺一遍。                                              |
+| 目标公司/岗位倾向 | 翻一下该公司或同类型岗位的面经，看有没有偏重（如算法、计网、项目深挖），针对性过一眼。                       |
+| 心态与状态        | 早睡、准备好设备（线上面试）或路线（现场），可看 [面试太紧张怎么办？](./how-to-handle-interview-nerves.md)。 |
 
 面试结束后建议做一次简短复盘：哪些题答得不好、哪些没准备到，补充进必会题清单，下一场前重点过一遍。

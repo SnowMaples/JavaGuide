@@ -8,7 +8,7 @@ head:
       content: CLAUDE.md,Claude Code,AI编程,AI项目规范,Agentic Coding,AI辅助开发,CLAUDE.md最佳实践,.claude/rules
 ---
 
-你好，我是小 G。前几天分享 [Claude Code 使用技巧](/ai-coding/practices/claudecode-tips.html) 的时候，我提到了一个很重要的文件 `CLAUDE.md`，并简单介绍了一下。
+你好，我是小 G。前几天分享 [Claude Code 使用技巧](./claudecode-tips.md) 的时候，我提到了一个很重要的文件 `CLAUDE.md`，并简单介绍了一下。
 
 有 G 友在评论区留言：这个文件既然这么重要，能不能单独写一篇来讲？
 
@@ -68,7 +68,7 @@ README 主要是写给人看的，重点是介绍项目信息；`CLAUDE.md` 则�
 - 使用 plan mode 处理 `src/billing/` 下的改动
 ```
 
-以及在我的 [一文搞懂 Harness Engineering](/ai/agent/harness-engineering.html) 这篇文章也提到过：OpenAI 的 `AGENTS.md` 大约只有 100 行，作用更像目录，指向 docs/ 目录下更深层的设计文档、架构图、执行计划和质量评级。这就是渐进式披露：先给最关键的信息，需要更多细节时再加载。
+以及在我的 [一文搞懂 Harness Engineering](../../ai/agent/harness-engineering.md) 这篇文章也提到过：OpenAI 的 `AGENTS.md` 大约只有 100 行，作用更像目录，指向 docs/ 目录下更深层的设计文档、架构图、执行计划和质量评级。这就是渐进式披露：先给最关键的信息，需要更多细节时再加载。
 
 ### CLAUDE.md vs .claude/rules/
 

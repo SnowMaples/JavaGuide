@@ -24,7 +24,7 @@ head:
 
 我们这里来简单分析一下。
 
-这篇文章不会谈论太多加密算法相关的内容，感兴趣的朋友可以看这篇文章：[常见加密算法总结](/system-design/security/encryption-algorithms.html)。
+这篇文章不会谈论太多加密算法相关的内容，感兴趣的朋友可以看这篇文章：[常见加密算法总结](./encryption-algorithms.md)。
 
 ![](https://oss.javaguide.cn/github/javaguide/system-design/security/encryption-algorithms/javaguide-security-encryption-algorithms.png)
 
@@ -173,7 +173,7 @@ public PasswordEncoder passwordEncoder(){
 
 HTTPS 协议是保障传输安全的基础。HTTP 协议运行在 TCP 之上，所有传输的内容都是明文，客户端和服务器端都无法验证对方的身份。HTTPS 则是运行在 SSL/TLS 之上的 HTTP 协议，所有传输的内容都经过加密。
 
-关于 HTTP 和 HTTPS 的详细对比可以看这篇文章：[HTTP vs HTTPS（应用层）](/cs-basics/network/http-vs-https.html)。
+关于 HTTP 和 HTTPS 的详细对比可以看这篇文章：[HTTP vs HTTPS（应用层）](../../cs-basics/network/http-vs-https.md)。
 
 **但是，仅仅依赖 HTTPS 还不够安全**：
 

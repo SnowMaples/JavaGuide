@@ -423,7 +423,7 @@ Gemini 官方限流文档把限流维度拆成 RPM、输入 TPM、RPD，并说�
 - 供应商级：全局令牌桶 + 熔断器
 - 流式请求：并发信号量 + 总时长限制
 
-关于限流算法的详细介绍，可以参考这篇文章：[服务限流详解](/high-availability/limit-request.html)。
+关于限流算法的详细介绍，可以参考这篇文章：[服务限流详解](../../high-availability/limit-request.md)。
 
 ### 收到 429 应该怎么处理
 

@@ -862,11 +862,11 @@ public class ScheduledThreadPoolExecutor
 - `Timer` 只有一个执行线程，因此长时间运行的任务可以延迟其他任务。 `ScheduledThreadPoolExecutor` 可以配置任意数量的线程。 此外，如果你想（通过提供 `ThreadFactory`），你可以完全控制创建的线程;
 - 在 `TimerTask` 中抛出的运行时异常会杀死一个线程，从而导致 `Timer` 死机即计划任务将不再运行。`ScheduledThreadExecutor` 不仅捕获运行时异常，还允许您在需要时处理它们（通过重写 `afterExecute` 方法 `ThreadPoolExecutor`）。抛出异常的任务将被取消，但其他任务将继续运行。
 
-关于定时任务的详细介绍，可以看这篇文章：[Java 定时任务详解](/system-design/schedule-task.html)。
+关于定时任务的详细介绍，可以看这篇文章：[Java 定时任务详解](../../system-design/schedule-task.md)。
 
 ## 线程池最佳实践
 
-[Java 线程池最佳实践](/java/concurrent/java-thread-pool-best-practices.html)这篇文章总结了一些使用线程池的时候应该注意的东西，实际项目使用线程池之前可以看看。
+[Java 线程池最佳实践](./java-thread-pool-best-practices.md)这篇文章总结了一些使用线程池的时候应该注意的东西，实际项目使用线程池之前可以看看。
 
 ## 参考
 

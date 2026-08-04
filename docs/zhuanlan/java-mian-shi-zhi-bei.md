@@ -76,7 +76,7 @@ head:
 - **内容真实、有启发性**： 优先选择那些能反映实际面试场景、考察重点和面试官思路的经验。
 - **提供深度学习资源**： 拒绝“只有问题没有答案”的焦虑。针对面经中的高频/核心难题，我精心关联了高质量的参考资料（通常是我撰写的深度解析文章）或直接提供核心参考答案，助你知其然更知其所以然。
 
-另外，[知识星球](/about-the-author/zhishixingqiu-two-years.html)还有专门分享面经和面试题的专题，持续更新优质的面经和面试题。
+另外，[知识星球](../about-the-author/zhishixingqiu-two-years.md)还有专门分享面经和面试题的专题，持续更新优质的面经和面试题。
 
 ![](https://oss.javaguide.cn/javamianshizhibei/xingqiu-real-interview-experience.png)
 

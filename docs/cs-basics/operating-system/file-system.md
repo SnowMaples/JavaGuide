@@ -323,4 +323,4 @@ ls -l /proc/<pid>/fd
 - 计算机考研杂货铺： [目录](https://csgraduates.com/operating_system/files/dir/)
 - 计算机考研杂货铺： [文件系统](https://csgraduates.com/operating_system/files/file_system/)
 - JavaGuide 操作系统专题：[操作系统常见面试题总结](/cs-basics/operating-system/)
-- JavaGuide 零拷贝详解：[zero-copy.md](/cs-basics/operating-system/zero-copy.html)
+- JavaGuide 零拷贝详解：[zero-copy.md](./zero-copy.md)

@@ -30,6 +30,8 @@
     "docs:build:clean": "rm -rf docs/.vuepress/.temp docs/.vuepress/.cache && pnpm docs:build",
     "docs:dev": "vuepress dev docs",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
+    "docs:links:normalize": "node scripts/normalize-local-doc-links.mjs --write",
+    "docs:links:check": "node scripts/verify-local-javaguide-links.mjs && node scripts/verify-local-markdown-links.mjs",
     "docsearch:index": "node scripts/docsearch-index.mjs",
     "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "lint": "pnpm lint:prettier && pnpm lint:md",

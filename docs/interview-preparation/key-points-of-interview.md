@@ -51,4 +51,4 @@ head:
 
 ## 详细面试准备计划（后端通用）
 
-[Java 后端面试重点和详细准备计划](/interview-preparation/backend-interview-plan.html)
+[Java 后端面试重点和详细准备计划](./backend-interview-plan.md)
