@@ -821,7 +821,7 @@ ID 是数据的唯一标识，分布式 ID 是分布式系统下的 ID。
 
 举个例子：电商系统中，你创建一个订单往往会涉及到订单服务（订单数加一）、库存服务（库存减一）等等服务，这些服务会有供自己单独使用的数据库。
 
-![分布式事务示意图](https://cdn.jsdelivr.net/gh/javaguide-tech/blog-images-6@main/12-04-1/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
+![分布式事务示意图](https://oss.javaguide.cn/java-guide-blog/%E5%88%86%E5%B8%83%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%A4%BA%E6%84%8F%E5%9B%BE.png)
 
 **那么如何保证这一组操作要么都执行成功，要么都执行失败呢？**
 

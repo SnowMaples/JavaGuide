@@ -6,6 +6,9 @@
   "license": "MIT",
   "author": "Guide",
   "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3"
+    ],
     "overrides": {
       "vite": ">=7.3.2",
       "undici": "7.24.6",
@@ -23,15 +26,19 @@
     }
   },
   "scripts": {
-    "dev": "pnpm docs:dev",
+    "dev": "node server/dev.mjs",
     "build": "pnpm docs:build",
     "build:clean": "pnpm docs:build:clean",
     "docs:build": "vuepress build docs",
     "docs:build:clean": "rm -rf docs/.vuepress/.temp docs/.vuepress/.cache && pnpm docs:build",
     "docs:dev": "vuepress dev docs",
+    "bookmarks:api": "node server/index.mjs --api-only --port=3001",
+    "serve": "node server/index.mjs --port=3000",
     "docs:clean-dev": "vuepress dev docs --clean-cache",
     "docs:links:normalize": "node scripts/normalize-local-doc-links.mjs --write",
     "docs:links:check": "node scripts/verify-local-javaguide-links.mjs && node scripts/verify-local-markdown-links.mjs",
+    "docs:images:check": "pnpm docs:build && node scripts/verify-images.mjs",
+    "docs:images:audit": "pnpm docs:build && node scripts/verify-images.mjs --network",
     "docsearch:index": "node scripts/docsearch-index.mjs",
     "indexnow:submit": "node scripts/indexnow-submit.mjs",
     "lint": "pnpm lint:prettier && pnpm lint:md",
@@ -49,6 +56,9 @@
     "@vuepress/helper": "2.0.0-rc.128",
     "@vuepress/plugin-docsearch": "2.0.0-rc.128",
     "@vuepress/plugin-feed": "2.0.0-rc.128",
+    "@vuepress/plugin-markdown-chart": "2.0.0-rc.128",
+    "better-sqlite3": "^13.0.3",
+    "express": "^5.2.1",
     "husky": "9.1.7",
     "markdownlint-cli2": "0.17.1",
     "mathjax-full": "3.2.2",

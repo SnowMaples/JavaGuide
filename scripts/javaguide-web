@@ -5,7 +5,7 @@ usage() {
     cat <<'EOF'
 Usage: javaguide-web [restart|start|stop|status|foreground] [vuepress options]
 
-Default action is restart. VuePress options are passed to `pnpm docs:dev`.
+Default action is restart. VuePress options are passed to the VuePress dev server.
 
 Examples:
   javaguide-web
@@ -100,13 +100,13 @@ ensure_ready() {
 
 run_dev() {
     if has_arg host "$@" && has_arg port "$@"; then
-        exec "$PNPM" docs:dev "$@"
+        exec node server/dev.mjs "$@"
     elif has_arg host "$@"; then
-        exec "$PNPM" docs:dev --port 8080 "$@"
+        exec node server/dev.mjs --port 8080 "$@"
     elif has_arg port "$@"; then
-        exec "$PNPM" docs:dev --host 127.0.0.1 "$@"
+        exec node server/dev.mjs --host 127.0.0.1 "$@"
     else
-        exec "$PNPM" docs:dev --host 127.0.0.1 --port 8080 "$@"
+        exec node server/dev.mjs --host 127.0.0.1 --port 8080 "$@"
     fi
 }
 

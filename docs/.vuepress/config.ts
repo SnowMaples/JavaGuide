@@ -20,6 +20,7 @@ export default defineUserConfig({
     // meta
     ["meta", { name: "robots", content: "all" }],
     ["meta", { name: "author", content: "Guide" }],
+    ["meta", { name: "referrer", content: "same-origin" }],
     // [
     //   "meta",
     //   {
@@ -65,6 +66,11 @@ export default defineUserConfig({
           scss: {
             silenceDeprecations: ["if-function"],
           },
+        },
+      },
+      server: {
+        proxy: {
+          "/api/reading-bookmarks": "http://localhost:3001",
         },
       },
     },

@@ -22,8 +22,6 @@ GitHub 不只是代码托管平台。对开发者来说，它同时承担了项�
 
 通过 <https://www.githubtrends.io/wrapped> 这个网站，你可以生成一份 GitHub 个人年报，这个年报会列举出你在这一年的项目贡献情况、最常使用的编程语言、详细的贡献信息。
 
-![](https://oss.javaguide.cn/github/dootask/image-20211226144607457.png)
-
 ## 个性化 GitHub 首页
 
 GitHub 目前支持在个人主页自定义展示一些内容。展示效果如下图所示。
@@ -58,9 +56,7 @@ GitHub 目前支持在个人主页自定义展示一些内容。展示效果如�
 
 ## 自动为项目添加贡献情况图标
 
-通过 repobeats 这个工具可以为 GitHub 项目添加如下图所示的项目贡献基本情况图表。
-
-![](https://oss.javaguide.cn/github/dootask/repobeats.png)
+通过 repobeats 这个工具可以为 GitHub 项目生成项目贡献基本情况图表。
 
 地址：<https://repobeats.axiom.co/> 。
 
@@ -119,8 +115,6 @@ git clone https://github.com/Snailclimb/JavaGuide.git
 ![](<https://oss.javaguide.cn/2020-11/iShot2020-11-07%2016.14.14%20(1).png>)
 
 不过，目前 GitHub 已经会为 Markdown 文件自动生成目录，只是需要通过页面上的目录按钮展开。
-
-![](https://oss.javaguide.cn/github/cosy/image-20211227093215005.png)
 
 ## 善用 GitHub Explore
 

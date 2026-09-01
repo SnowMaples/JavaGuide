@@ -10,6 +10,7 @@ node_modules/
 **/.vuepress/.temp/
 # VuePress Output
 dist/
+data/*.sqlite*
 traversal-folder-replace-string.py
 format-markdown.py
 
