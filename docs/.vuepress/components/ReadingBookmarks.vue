@@ -5,7 +5,7 @@
         <button
           class="bookmark-trigger bookmark-nav-trigger auto-link"
           :class="{ 'is-open': isOpen }"
-          title="阅读书签"
+          title="阅读记录"
           @click="togglePanel"
         >
           <svg
@@ -21,7 +21,7 @@
           >
             <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
           </svg>
-          <span class="btn-text">书签</span>
+          <span class="btn-text">阅读记录</span>
           <span v-if="bookmarks.length" class="bookmark-count">
             {{ bookmarks.length }}
           </span>
@@ -32,7 +32,7 @@
     <button
       class="bookmark-trigger bookmark-mobile-trigger"
       :class="{ 'is-open': isOpen }"
-      title="阅读书签"
+      title="阅读记录"
       @click="togglePanel"
     >
       <svg
@@ -48,7 +48,7 @@
       >
         <path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16z" />
       </svg>
-      <span class="mobile-btn-text">书签</span>
+      <span class="mobile-btn-text">阅读记录</span>
       <span v-if="bookmarks.length" class="bookmark-count">
         {{ bookmarks.length }}
       </span>
@@ -58,7 +58,7 @@
       <transition name="bookmark-panel">
         <div v-if="isOpen" class="bookmark-panel">
           <div class="bookmark-panel-header">
-            <h3>阅读书签</h3>
+            <h3>继续阅读</h3>
             <button
               class="bookmark-icon-btn"
               title="关闭"
@@ -71,56 +71,173 @@
           <div v-if="syncError" class="bookmark-error">{{ syncError }}</div>
 
           <div v-if="bookmarks.length" class="bookmark-list">
-            <div
-              v-for="bookmark in bookmarks"
-              :key="bookmark.path"
-              class="bookmark-item"
-              :class="{ 'is-disabled': isSyncing }"
-              role="button"
-              tabindex="0"
-              @click="openBookmark(bookmark)"
-              @keydown.enter.prevent="openBookmark(bookmark)"
-              @keydown.space.prevent="openBookmark(bookmark)"
-            >
-              <span class="bookmark-title">{{ bookmark.title }}</span>
-              <span class="bookmark-meta">
-                <span
-                  v-for="tag in bookmark.tags"
-                  :key="`${bookmark.path}-${tag}`"
-                  class="bookmark-tag"
-                >
-                  {{ tag }}
-                </span>
-              </span>
-              <span class="bookmark-position">
-                {{ bookmark.headingText || `阅读到 ${bookmark.progress}%` }}
-              </span>
-              <span class="bookmark-time">
-                {{ formatUpdatedAt(bookmark.updatedAt) }}
-              </span>
-              <button
-                class="bookmark-remove"
-                title="删除"
-                :disabled="isSyncing"
-                @click.stop="removeBookmark(bookmark.path)"
+            <template v-if="!showAllBookmarks">
+              <div
+                v-if="continueReadingBookmark"
+                class="bookmark-item bookmark-featured"
+                :class="{ 'is-disabled': isSyncing }"
+                role="button"
+                tabindex="0"
+                @click="openBookmark(continueReadingBookmark)"
+                @keydown.enter.prevent="openBookmark(continueReadingBookmark)"
+                @keydown.space.prevent="openBookmark(continueReadingBookmark)"
               >
-                ×
-              </button>
-            </div>
+                <span class="bookmark-eyebrow">上次读到</span>
+                <span class="bookmark-title">
+                  {{ continueReadingBookmark.title }}
+                </span>
+                <span class="bookmark-meta">
+                  <span
+                    v-for="tag in continueReadingBookmark.tags.slice(0, 2)"
+                    :key="`${continueReadingBookmark.path}-${tag}`"
+                    class="bookmark-tag"
+                  >
+                    {{ tag }}
+                  </span>
+                  <span
+                    v-if="continueReadingRelatedCount"
+                    class="bookmark-topic-count"
+                  >
+                    同专题另 {{ continueReadingRelatedCount }} 篇
+                  </span>
+                </span>
+                <span class="bookmark-position">
+                  {{
+                    continueReadingBookmark.headingText ||
+                    `阅读到 ${continueReadingBookmark.progress}%`
+                  }}
+                </span>
+                <span class="bookmark-time">
+                  {{ formatUpdatedAt(continueReadingBookmark.updatedAt) }}
+                </span>
+                <button
+                  class="bookmark-remove"
+                  title="删除"
+                  :disabled="isSyncing"
+                  @click.stop="removeBookmark(continueReadingBookmark.path)"
+                >
+                  ×
+                </button>
+              </div>
+
+              <div
+                v-if="recentBookmarkGroups.length"
+                class="bookmark-section-title"
+              >
+                最近阅读
+              </div>
+              <div
+                v-for="group in recentBookmarkGroups"
+                :key="group.key"
+                class="bookmark-item"
+                :class="{ 'is-disabled': isSyncing }"
+                role="button"
+                tabindex="0"
+                @click="openBookmark(group.representative)"
+                @keydown.enter.prevent="openBookmark(group.representative)"
+                @keydown.space.prevent="openBookmark(group.representative)"
+              >
+                <span class="bookmark-title">
+                  {{ group.representative.title }}
+                </span>
+                <span class="bookmark-meta">
+                  <span
+                    v-for="tag in group.representative.tags.slice(0, 2)"
+                    :key="`${group.representative.path}-${tag}`"
+                    class="bookmark-tag"
+                  >
+                    {{ tag }}
+                  </span>
+                  <span v-if="group.count > 1" class="bookmark-topic-count">
+                    同专题另 {{ group.count - 1 }} 篇
+                  </span>
+                </span>
+                <span class="bookmark-position">
+                  {{
+                    group.representative.headingText ||
+                    `阅读到 ${group.representative.progress}%`
+                  }}
+                </span>
+                <span class="bookmark-time">
+                  {{ formatUpdatedAt(group.representative.updatedAt) }}
+                </span>
+                <button
+                  class="bookmark-remove"
+                  title="删除"
+                  :disabled="isSyncing"
+                  @click.stop="removeBookmark(group.representative.path)"
+                >
+                  ×
+                </button>
+              </div>
+            </template>
+
+            <template v-else>
+              <div class="bookmark-section-title">全部记录</div>
+              <div
+                v-for="bookmark in bookmarks"
+                :key="bookmark.path"
+                class="bookmark-item"
+                :class="{ 'is-disabled': isSyncing }"
+                role="button"
+                tabindex="0"
+                @click="openBookmark(bookmark)"
+                @keydown.enter.prevent="openBookmark(bookmark)"
+                @keydown.space.prevent="openBookmark(bookmark)"
+              >
+                <span class="bookmark-title">{{ bookmark.title }}</span>
+                <span class="bookmark-meta">
+                  <span
+                    v-for="tag in bookmark.tags"
+                    :key="`${bookmark.path}-${tag}`"
+                    class="bookmark-tag"
+                  >
+                    {{ tag }}
+                  </span>
+                </span>
+                <span class="bookmark-position">
+                  {{ bookmark.headingText || `阅读到 ${bookmark.progress}%` }}
+                </span>
+                <span class="bookmark-time">
+                  {{ formatUpdatedAt(bookmark.updatedAt) }}
+                </span>
+                <button
+                  class="bookmark-remove"
+                  title="删除"
+                  :disabled="isSyncing"
+                  @click.stop="removeBookmark(bookmark.path)"
+                >
+                  ×
+                </button>
+              </div>
+            </template>
           </div>
 
           <div v-else class="bookmark-empty">
             {{ isSyncing ? "正在同步书签" : "暂无阅读记录" }}
           </div>
 
-          <button
-            v-if="bookmarks.length"
-            class="bookmark-clear"
-            :disabled="isSyncing"
-            @click="clearBookmarks"
-          >
-            清空全部
-          </button>
+          <div v-if="bookmarks.length" class="bookmark-actions">
+            <button
+              v-if="bookmarks.length > 1"
+              class="bookmark-view-toggle"
+              :disabled="isSyncing"
+              @click="showAllBookmarks = !showAllBookmarks"
+            >
+              {{
+                showAllBookmarks
+                  ? "收起全部记录"
+                  : `查看全部 ${bookmarks.length} 条`
+              }}
+            </button>
+            <button
+              class="bookmark-clear"
+              :disabled="isSyncing"
+              @click="clearBookmarks"
+            >
+              清空全部
+            </button>
+          </div>
         </div>
       </transition>
     </Teleport>
@@ -147,12 +264,14 @@ import {
   deleteServerBookmark,
   fetchServerBookmarks,
   getReadingTags,
+  groupBookmarksByTopic,
   hydrateBookmarkTags,
   isReadablePage,
   markServerMigrationDone,
   NAVBAR_TARGET_SELECTOR,
   readBookmarks,
   saveServerBookmark,
+  selectContinueReadingBookmark,
   shouldMigrateLocalBookmarks,
 } from "../features/reading-bookmarks/bookmarks.mjs";
 
@@ -168,6 +287,13 @@ type ReadingBookmark = {
   updatedAt: number;
 };
 
+type BookmarkTopicGroup = {
+  key: string;
+  representative: ReadingBookmark;
+  count: number;
+  bookmarks: ReadingBookmark[];
+};
+
 type PageFrontmatter = {
   article?: boolean;
   blog?: unknown;
@@ -178,6 +304,7 @@ type PageFrontmatter = {
 };
 
 const SAVE_INTERVAL = 5000;
+const MAX_DEFAULT_TOPIC_GROUPS = 5;
 const RESTORE_KEY = "javaguide-reading-bookmark-restore";
 const CONTENT_SELECTOR =
   "#markdown-content, .theme-hope-content, .vp-page-content, .vp-content";
@@ -191,7 +318,33 @@ const hasNavbarTarget = ref(false);
 const bookmarks = ref<ReadingBookmark[]>([]);
 const isSyncing = ref(false);
 const syncError = ref("");
+const showAllBookmarks = ref(false);
 const currentPageReadable = computed(() => isReadablePage(pageData.value));
+const continueReadingBookmark = computed(
+  () =>
+    selectContinueReadingBookmark(bookmarks.value) as ReadingBookmark | null,
+);
+const bookmarkGroups = computed(
+  () => groupBookmarksByTopic(bookmarks.value) as BookmarkTopicGroup[],
+);
+const continueReadingGroup = computed(() => {
+  const bookmark = continueReadingBookmark.value;
+  if (!bookmark) return null;
+
+  return (
+    bookmarkGroups.value.find((group) =>
+      group.bookmarks.some((item) => item.path === bookmark.path),
+    ) ?? null
+  );
+});
+const continueReadingRelatedCount = computed(() =>
+  Math.max(0, (continueReadingGroup.value?.count ?? 1) - 1),
+);
+const recentBookmarkGroups = computed(() =>
+  bookmarkGroups.value
+    .filter((group) => group.key !== continueReadingGroup.value?.key)
+    .slice(0, MAX_DEFAULT_TOPIC_GROUPS),
+);
 
 let saveTimer: number | null = null;
 let restoreTimer: number | null = null;
@@ -340,8 +493,14 @@ const formatUpdatedAt = (updatedAt: number) => {
 };
 
 const togglePanel = async () => {
-  await loadBookmarks();
-  isOpen.value = !isOpen.value;
+  const nextIsOpen = !isOpen.value;
+
+  if (nextIsOpen) {
+    showAllBookmarks.value = false;
+    await loadBookmarks();
+  }
+
+  isOpen.value = nextIsOpen;
 };
 
 const removeBookmark = async (path: string) => {
@@ -363,6 +522,7 @@ const clearBookmarks = async () => {
 
   try {
     setServerBookmarks((await clearServerBookmarks()) as ReadingBookmark[]);
+    showAllBookmarks.value = false;
   } catch {
     syncError.value = "书签服务不可用";
   } finally {
@@ -657,6 +817,27 @@ watch(
   }
 }
 
+.bookmark-featured {
+  border-color: var(--vp-c-accent);
+  background: var(--vp-c-accent-bg);
+}
+
+.bookmark-eyebrow,
+.bookmark-section-title {
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--vp-c-text-mute);
+}
+
+.bookmark-eyebrow {
+  color: var(--vp-c-accent);
+}
+
+.bookmark-section-title {
+  padding: 4px 2px 0;
+}
+
 .bookmark-title {
   overflow: hidden;
   font-size: 14px;
@@ -684,6 +865,13 @@ watch(
   white-space: nowrap;
   background: var(--vp-c-accent-bg);
   border-radius: 4px;
+}
+
+.bookmark-topic-count {
+  align-self: center;
+  font-size: 11px;
+  line-height: 1.5;
+  color: var(--vp-c-text-mute);
 }
 
 .bookmark-position,
@@ -723,10 +911,16 @@ watch(
   border-radius: 6px;
 }
 
+.bookmark-actions {
+  display: grid;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.bookmark-view-toggle,
 .bookmark-clear {
   width: 100%;
   height: 34px;
-  margin-top: 10px;
   font-size: 13px;
   color: var(--vp-c-text-mute);
   background: transparent;

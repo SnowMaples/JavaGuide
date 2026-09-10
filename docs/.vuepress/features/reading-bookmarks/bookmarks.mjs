@@ -28,7 +28,9 @@ export const isReadablePage = (pageData = {}) => {
   const path = String(pageData.path ?? "");
   const frontmatter = pageData.frontmatter ?? {};
 
-  if (!path || path === "/404.html") return false;
+  if (!path || path === "/" || path === "/index.html" || path === "/home.html")
+    return false;
+  if (path === "/404.html") return false;
   if (path.startsWith("/tag/") || path.startsWith("/category/")) return false;
   if (frontmatter.layout === "Blog" || frontmatter.layout === "NotFound")
     return false;
@@ -52,6 +54,56 @@ export const upsertBookmark = (bookmarks, bookmark) => {
   return next
     .sort((a, b) => Number(b.updatedAt) - Number(a.updatedAt))
     .slice(0, MAX_BOOKMARKS);
+};
+
+const getBookmarkTopicKey = (path) => {
+  const pathname = String(path ?? "").split(/[?#]/, 1)[0];
+  if (!pathname || pathname === "/") return "/";
+  if (pathname.endsWith("/")) return pathname;
+
+  return pathname.slice(0, pathname.lastIndexOf("/") + 1) || "/";
+};
+
+export const groupBookmarksByTopic = (bookmarks) => {
+  const groups = new Map();
+
+  for (const bookmark of bookmarks) {
+    const key = getBookmarkTopicKey(bookmark.path);
+    const group = groups.get(key) ?? [];
+    group.push(bookmark);
+    groups.set(key, group);
+  }
+
+  return Array.from(groups, ([key, groupBookmarks]) => {
+    const sortedBookmarks = [...groupBookmarks].sort(
+      (a, b) => Number(b.updatedAt) - Number(a.updatedAt),
+    );
+
+    return {
+      key,
+      representative: sortedBookmarks[0],
+      count: sortedBookmarks.length,
+      bookmarks: sortedBookmarks,
+    };
+  }).sort(
+    (a, b) =>
+      Number(b.representative.updatedAt) - Number(a.representative.updatedAt),
+  );
+};
+
+export const selectContinueReadingBookmark = (bookmarks) => {
+  const sortedBookmarks = [...bookmarks].sort(
+    (a, b) => Number(b.updatedAt) - Number(a.updatedAt),
+  );
+
+  return (
+    sortedBookmarks.find(
+      (bookmark) =>
+        Number(bookmark.progress) > 0 && Number(bookmark.progress) < 100,
+    ) ??
+    sortedBookmarks[0] ??
+    null
+  );
 };
 
 export const hydrateBookmarkTags = (bookmarks, routes = {}) =>

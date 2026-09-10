@@ -10,15 +10,100 @@ import {
   deleteServerBookmark,
   fetchServerBookmarks,
   getReadingTags,
+  groupBookmarksByTopic,
   hydrateBookmarkTags,
   isReadablePage,
   markServerMigrationDone,
   normalizeBookmarks,
   saveServerBookmark,
+  selectContinueReadingBookmark,
   SERVER_MIGRATION_KEY,
   shouldMigrateLocalBookmarks,
   upsertBookmark,
 } from "./bookmarks.mjs";
+
+test("groupBookmarksByTopic keeps one latest representative per parent directory", () => {
+  const groups = groupBookmarksByTopic([
+    {
+      path: "/java/basis/old.html",
+      title: "Old basis article",
+      updatedAt: 1,
+    },
+    {
+      path: "/java/collection/latest.html",
+      title: "Latest collection article",
+      updatedAt: 4,
+    },
+    {
+      path: "/java/basis/latest.html",
+      title: "Latest basis article",
+      updatedAt: 3,
+    },
+    {
+      path: "/java/collection/old.html",
+      title: "Old collection article",
+      updatedAt: 2,
+    },
+  ]);
+
+  assert.equal(groups.length, 2);
+  assert.equal(groups[0].key, "/java/collection/");
+  assert.equal(groups[0].representative.title, "Latest collection article");
+  assert.equal(groups[0].count, 2);
+  assert.equal(groups[1].key, "/java/basis/");
+  assert.equal(groups[1].representative.title, "Latest basis article");
+  assert.equal(groups[1].count, 2);
+});
+
+test("groupBookmarksByTopic puts a directory overview with its child articles", () => {
+  const groups = groupBookmarksByTopic([
+    { path: "/java/basis/", title: "Java basis", updatedAt: 1 },
+    { path: "/java/basis/questions.html", title: "Questions", updatedAt: 2 },
+  ]);
+
+  assert.equal(groups.length, 1);
+  assert.equal(groups[0].key, "/java/basis/");
+  assert.equal(groups[0].count, 2);
+  assert.deepEqual(
+    groups[0].bookmarks.map((bookmark) => bookmark.path),
+    ["/java/basis/questions.html", "/java/basis/"],
+  );
+});
+
+test("selectContinueReadingBookmark prefers the latest unfinished article", () => {
+  const bookmark = selectContinueReadingBookmark([
+    {
+      path: "/completed.html",
+      title: "Completed",
+      progress: 100,
+      updatedAt: 5,
+    },
+    {
+      path: "/older-unfinished.html",
+      title: "Older unfinished",
+      progress: 20,
+      updatedAt: 2,
+    },
+    {
+      path: "/latest-unfinished.html",
+      title: "Latest unfinished",
+      progress: 80,
+      updatedAt: 4,
+    },
+  ]);
+
+  assert.equal(bookmark?.path, "/latest-unfinished.html");
+});
+
+test("selectContinueReadingBookmark falls back to the latest record", () => {
+  const bookmark = selectContinueReadingBookmark([
+    { path: "/older.html", progress: 0, updatedAt: 1 },
+    { path: "/latest.html", progress: 100, updatedAt: 2 },
+  ]);
+
+  assert.equal(bookmark?.path, "/latest.html");
+  assert.equal(selectContinueReadingBookmark([]), null);
+});
 
 test("upsertBookmark updates by path, sorts newest first, and caps the list", () => {
   const base = Array.from({ length: MAX_BOOKMARKS }, (_, index) => ({
@@ -140,6 +225,8 @@ test("getReadingTags prefers tags and falls back to category", () => {
 });
 
 test("isReadablePage excludes non-reading pages", () => {
+  assert.equal(isReadablePage({ path: "/", frontmatter: {} }), false);
+  assert.equal(isReadablePage({ path: "/index.html", frontmatter: {} }), false);
   assert.equal(isReadablePage({ path: "/404.html", frontmatter: {} }), false);
   assert.equal(
     isReadablePage({
@@ -152,6 +239,7 @@ test("isReadablePage excludes non-reading pages", () => {
     isReadablePage({ path: "/java/", frontmatter: { article: false } }),
     false,
   );
+  assert.equal(isReadablePage({ path: "/home.html", frontmatter: {} }), false);
   assert.equal(
     isReadablePage({
       path: "/java/basis/java-basic-questions-01.html",
@@ -176,6 +264,20 @@ test("ReadingBookmarks keeps a mobile-visible trigger", async () => {
     component,
     /<div v-if="isClientReady" class="[^"]*hide-in-mobile[^"]*"/,
   );
+});
+
+test("ReadingBookmarks defaults to continue reading with grouped and full views", async () => {
+  const component = await readFile(
+    new URL("../../components/ReadingBookmarks.vue", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(component, />阅读记录<\/span>/);
+  assert.match(component, /<h3>继续阅读<\/h3>/);
+  assert.match(component, /groupBookmarksByTopic/);
+  assert.match(component, /selectContinueReadingBookmark/);
+  assert.match(component, /查看全部.*条/);
+  assert.match(component, /最近阅读/);
 });
 
 test("server bookmark helpers normalize and sort server responses", async () => {
