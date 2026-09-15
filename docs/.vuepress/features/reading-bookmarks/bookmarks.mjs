@@ -2,8 +2,34 @@ export const STORAGE_KEY = "javaguide-reading-bookmarks-v1";
 export const SERVER_MIGRATION_KEY =
   "javaguide-reading-bookmarks-server-migrated-v1";
 export const API_ENDPOINT = "/api/reading-bookmarks";
+export const AUTO_BOOKMARK_DELAY = 5 * 60 * 1000;
 export const MAX_BOOKMARKS = 50;
 export const NAVBAR_TARGET_SELECTOR = ".vp-navbar-center";
+
+export const createAutoBookmarkScheduler = ({
+  onElapsed,
+  delay = AUTO_BOOKMARK_DELAY,
+  setTimeoutFn = setTimeout,
+  clearTimeoutFn = clearTimeout,
+}) => {
+  let timerId = null;
+
+  const cancel = () => {
+    if (timerId === null) return;
+    clearTimeoutFn(timerId);
+    timerId = null;
+  };
+
+  const restart = () => {
+    cancel();
+    timerId = setTimeoutFn(() => {
+      timerId = null;
+      onElapsed();
+    }, delay);
+  };
+
+  return { cancel, restart };
+};
 
 const toArray = (value) => {
   if (Array.isArray(value)) return value;

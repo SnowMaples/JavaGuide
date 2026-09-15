@@ -4,9 +4,11 @@ import test from "node:test";
 
 import {
   API_ENDPOINT,
+  AUTO_BOOKMARK_DELAY,
   MAX_BOOKMARKS,
   NAVBAR_TARGET_SELECTOR,
   clearServerBookmarks,
+  createAutoBookmarkScheduler,
   deleteServerBookmark,
   fetchServerBookmarks,
   getReadingTags,
@@ -21,6 +23,50 @@ import {
   shouldMigrateLocalBookmarks,
   upsertBookmark,
 } from "./bookmarks.mjs";
+
+test("auto bookmark scheduler waits five minutes and resets on activity", () => {
+  let nextTimerId = 0;
+  let elapsedCount = 0;
+  const scheduled = new Map();
+  const delays = [];
+  const setTimeoutFn = (callback, delay) => {
+    const timerId = ++nextTimerId;
+    scheduled.set(timerId, callback);
+    delays.push(delay);
+    return timerId;
+  };
+  const clearTimeoutFn = (timerId) => scheduled.delete(timerId);
+  const runTimer = (timerId) => {
+    const callback = scheduled.get(timerId);
+    scheduled.delete(timerId);
+    callback?.();
+  };
+  const scheduler = createAutoBookmarkScheduler({
+    onElapsed: () => {
+      elapsedCount += 1;
+    },
+    setTimeoutFn,
+    clearTimeoutFn,
+  });
+
+  scheduler.restart();
+  const firstTimerId = nextTimerId;
+  scheduler.restart();
+  const secondTimerId = nextTimerId;
+
+  assert.deepEqual(delays, [AUTO_BOOKMARK_DELAY, AUTO_BOOKMARK_DELAY]);
+  assert.equal(AUTO_BOOKMARK_DELAY, 5 * 60 * 1000);
+  assert.equal(scheduled.has(firstTimerId), false);
+  assert.equal(scheduled.has(secondTimerId), true);
+
+  runTimer(secondTimerId);
+  assert.equal(elapsedCount, 1);
+  assert.equal(scheduled.size, 0);
+
+  scheduler.restart();
+  scheduler.cancel();
+  assert.equal(scheduled.size, 0);
+});
 
 test("groupBookmarksByTopic keeps one latest representative per parent directory", () => {
   const groups = groupBookmarksByTopic([
@@ -278,6 +324,48 @@ test("ReadingBookmarks defaults to continue reading with grouped and full views"
   assert.match(component, /selectContinueReadingBookmark/);
   assert.match(component, /查看全部.*条/);
   assert.match(component, /最近阅读/);
+});
+
+test("ReadingBookmarks supports manual marking and removes eager autosave paths", async () => {
+  const component = await readFile(
+    new URL("../../components/ReadingBookmarks.vue", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(component, /标记当前位置/);
+  assert.match(component, /createAutoBookmarkScheduler/);
+  assert.match(component, /addEventListener\("scroll", handleScroll/);
+  assert.match(component, /\{ passive: true \}/);
+  assert.match(component, /document\.visibilityState === "visible"/);
+  assert.doesNotMatch(
+    component,
+    /reason === "beforeUnmount"[\s\S]{0,160}saveCurrentBookmark/,
+  );
+  assert.doesNotMatch(component, /setInterval/);
+  assert.doesNotMatch(component, /beforeunload/);
+});
+
+test("ReadingBookmarks prevents horizontal overflow and places remove buttons on the left", async () => {
+  const component = await readFile(
+    new URL("../../components/ReadingBookmarks.vue", import.meta.url),
+    "utf8",
+  );
+
+  assert.match(
+    component,
+    /\.bookmark-list\s*\{[^}]*overflow-x:\s*hidden;[^}]*overflow-y:\s*auto;/s,
+  );
+  assert.match(
+    component,
+    /\.bookmark-item\s*\{[^}]*box-sizing:\s*border-box;[^}]*padding:\s*10px 10px 10px 34px;/s,
+  );
+
+  const removeStyleBlocks = [
+    ...component.matchAll(/\.bookmark-remove\s*\{([^}]*)\}/gs),
+  ];
+  const removeStyles = removeStyleBlocks.at(-1)?.[1];
+  assert.match(removeStyles ?? "", /left:\s*8px;/);
+  assert.doesNotMatch(removeStyles ?? "", /right:\s*8px;/);
 });
 
 test("server bookmark helpers normalize and sort server responses", async () => {

@@ -70,6 +70,19 @@
 
           <div v-if="syncError" class="bookmark-error">{{ syncError }}</div>
 
+          <button
+            v-if="currentPageReadable"
+            class="bookmark-mark-current"
+            :disabled="isSyncing || isSaving"
+            @click="markCurrentPosition"
+          >
+            {{
+              hasManuallySavedCurrentPosition
+                ? "已标记当前位置"
+                : "标记当前位置"
+            }}
+          </button>
+
           <div v-if="bookmarks.length" class="bookmark-list">
             <template v-if="!showAllBookmarks">
               <div
@@ -261,6 +274,7 @@ import {
 } from "vuepress/client";
 import {
   clearServerBookmarks,
+  createAutoBookmarkScheduler,
   deleteServerBookmark,
   fetchServerBookmarks,
   getReadingTags,
@@ -303,7 +317,6 @@ type PageFrontmatter = {
   tags?: string | string[];
 };
 
-const SAVE_INTERVAL = 5000;
 const MAX_DEFAULT_TOPIC_GROUPS = 5;
 const RESTORE_KEY = "javaguide-reading-bookmark-restore";
 const CONTENT_SELECTOR =
@@ -317,8 +330,10 @@ const isOpen = ref(false);
 const hasNavbarTarget = ref(false);
 const bookmarks = ref<ReadingBookmark[]>([]);
 const isSyncing = ref(false);
+const isSaving = ref(false);
 const syncError = ref("");
 const showAllBookmarks = ref(false);
+const hasManuallySavedCurrentPosition = ref(false);
 const currentPageReadable = computed(() => isReadablePage(pageData.value));
 const continueReadingBookmark = computed(
   () =>
@@ -346,10 +361,7 @@ const recentBookmarkGroups = computed(() =>
     .slice(0, MAX_DEFAULT_TOPIC_GROUPS),
 );
 
-let saveTimer: number | null = null;
 let restoreTimer: number | null = null;
-let isSaving = false;
-let shouldSaveAgain = false;
 
 const getStorage = () =>
   typeof window === "undefined" ? null : window.localStorage;
@@ -442,43 +454,41 @@ const getCurrentBookmark = (): ReadingBookmark | null => {
 
 const saveCurrentBookmark = async () => {
   const bookmark = getCurrentBookmark();
-  if (!bookmark) return;
+  if (!bookmark || isSaving.value) return false;
 
-  if (isSaving) {
-    shouldSaveAgain = true;
-    return;
-  }
-
-  isSaving = true;
+  isSaving.value = true;
   syncError.value = "";
 
   try {
     setServerBookmarks(
       (await saveServerBookmark(bookmark)) as ReadingBookmark[],
     );
+    return true;
   } catch {
     syncError.value = "书签服务不可用";
+    return false;
   } finally {
-    isSaving = false;
-
-    if (shouldSaveAgain) {
-      shouldSaveAgain = false;
-      void saveCurrentBookmark();
-    }
+    isSaving.value = false;
   }
 };
 
-const stopSaveTimer = () => {
-  if (saveTimer === null) return;
-  window.clearInterval(saveTimer);
-  saveTimer = null;
+const autoBookmarkScheduler = createAutoBookmarkScheduler({
+  onElapsed: () => void saveCurrentBookmark(),
+});
+
+const restartAutoBookmarkTimer = () => {
+  autoBookmarkScheduler.cancel();
+  if (!currentPageReadable.value || typeof document === "undefined") return;
+  if (document.visibilityState !== "visible") return;
+
+  autoBookmarkScheduler.restart();
 };
 
-const startSaveTimer = () => {
-  stopSaveTimer();
-  if (!currentPageReadable.value) return;
+const markCurrentPosition = async () => {
+  if (!(await saveCurrentBookmark())) return;
 
-  saveTimer = window.setInterval(saveCurrentBookmark, SAVE_INTERVAL);
+  hasManuallySavedCurrentPosition.value = true;
+  restartAutoBookmarkTimer();
 };
 
 const formatUpdatedAt = (updatedAt: number) => {
@@ -509,6 +519,9 @@ const removeBookmark = async (path: string) => {
 
   try {
     setServerBookmarks((await deleteServerBookmark(path)) as ReadingBookmark[]);
+    if (path === pageData.value.path) {
+      hasManuallySavedCurrentPosition.value = false;
+    }
   } catch {
     syncError.value = "书签服务不可用";
   } finally {
@@ -523,6 +536,7 @@ const clearBookmarks = async () => {
   try {
     setServerBookmarks((await clearServerBookmarks()) as ReadingBookmark[]);
     showAllBookmarks.value = false;
+    hasManuallySavedCurrentPosition.value = false;
   } catch {
     syncError.value = "书签服务不可用";
   } finally {
@@ -613,18 +627,27 @@ const scheduleRestore = () => {
 };
 
 const handleVisibilityChange = () => {
-  if (document.visibilityState === "hidden") {
-    saveCurrentBookmark();
+  if (document.visibilityState === "visible") {
+    restartAutoBookmarkTimer();
+    return;
   }
+
+  autoBookmarkScheduler.cancel();
+};
+
+const handleScroll = () => {
+  hasManuallySavedCurrentPosition.value = false;
+  restartAutoBookmarkTimer();
 };
 
 onContentUpdated((reason) => {
   if (reason === "beforeUnmount") {
-    saveCurrentBookmark();
+    autoBookmarkScheduler.cancel();
     return;
   }
 
   scheduleRestore();
+  restartAutoBookmarkTimer();
 });
 
 onMounted(() => {
@@ -633,18 +656,17 @@ onMounted(() => {
     document.querySelector(NAVBAR_TARGET_SELECTOR),
   );
   void loadBookmarks();
-  startSaveTimer();
+  restartAutoBookmarkTimer();
   scheduleRestore();
 
   document.addEventListener("visibilitychange", handleVisibilityChange);
-  window.addEventListener("beforeunload", saveCurrentBookmark);
+  window.addEventListener("scroll", handleScroll, { passive: true });
 });
 
 onBeforeUnmount(() => {
-  saveCurrentBookmark();
-  stopSaveTimer();
+  autoBookmarkScheduler.cancel();
   document.removeEventListener("visibilitychange", handleVisibilityChange);
-  window.removeEventListener("beforeunload", saveCurrentBookmark);
+  window.removeEventListener("scroll", handleScroll);
 
   if (restoreTimer !== null) {
     window.clearTimeout(restoreTimer);
@@ -654,7 +676,8 @@ onBeforeUnmount(() => {
 watch(
   () => pageData.value.path,
   () => {
-    startSaveTimer();
+    hasManuallySavedCurrentPosition.value = false;
+    restartAutoBookmarkTimer();
     scheduleRestore();
     void loadBookmarks();
   },
@@ -738,6 +761,8 @@ watch(
   top: 64px;
   bottom: auto;
   z-index: 1000;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   width: min(360px, calc(100vw - 32px));
   max-height: min(520px, calc(100vh - 180px));
@@ -752,6 +777,7 @@ watch(
 
 .bookmark-panel-header {
   display: flex;
+  flex-shrink: 0;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
@@ -788,18 +814,21 @@ watch(
 
 .bookmark-list {
   display: grid;
+  flex: 1;
   gap: 8px;
-  max-height: min(390px, calc(100vh - 280px));
+  min-height: 0;
   padding-right: 2px;
-  overflow: auto;
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
 .bookmark-item {
   position: relative;
   display: grid;
+  box-sizing: border-box;
   gap: 5px;
   width: 100%;
-  padding: 10px 34px 10px 10px;
+  padding: 10px 10px 10px 34px;
   color: inherit;
   text-align: left;
   background: var(--vp-c-bg-soft);
@@ -887,7 +916,7 @@ watch(
 .bookmark-remove {
   position: absolute;
   top: 8px;
-  right: 8px;
+  left: 8px;
   width: 22px;
   height: 22px;
   font-size: 18px;
@@ -901,6 +930,7 @@ watch(
 }
 
 .bookmark-error {
+  flex-shrink: 0;
   margin-bottom: 10px;
   padding: 8px 10px;
   font-size: 12px;
@@ -911,8 +941,32 @@ watch(
   border-radius: 6px;
 }
 
+.bookmark-mark-current {
+  flex-shrink: 0;
+  width: 100%;
+  height: 36px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  color: #fff;
+  background: var(--vp-c-accent);
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+
+  &:hover:not(:disabled) {
+    background: var(--vp-c-accent-hover);
+  }
+
+  &:disabled {
+    cursor: wait;
+    opacity: 0.65;
+  }
+}
+
 .bookmark-actions {
   display: grid;
+  flex-shrink: 0;
   gap: 8px;
   margin-top: 10px;
 }
